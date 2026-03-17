@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lightweight Drone Frame — Alex Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Alex Chen</a>
+  <ul class="nav-links">
+    <li><a href="../../index.html#about">About</a></li>
+    <li><a href="../../index.html#skills">Skills</a></li>
+    <li><a href="../../index.html#projects">Projects</a></li>
+    <li><a href="../../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-detail-hero">
+  <a href="../../index.html#projects" class="back-link">← Back to Projects</a>
+  <div class="detail-eyebrow">Structural Analysis</div>
+  <h1 class="detail-title">Lightweight Drone Frame</h1>
+  <p class="detail-summary">Applied topology optimization to a UAV airframe to achieve a 35% weight reduction while maintaining all required structural safety factors under flight load conditions.</p>
+</div>
+
+<div class="detail-meta-bar">
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Category</span>
+    <span class="detail-meta-value">Senior Design — Team Project</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Year</span>
+    <span class="detail-meta-value">2024</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Tools</span>
+    <span class="detail-meta-value">ANSYS Mechanical, Fusion 360</span>
+  </div>
+</div>
+
+<div class="detail-body">
+  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+
+  <h3>Overview</h3>
+  <p>As part of our senior design capstone, my team was tasked with redesigning the main frame of a fixed-wing UAV for an educational drone platform. My role was structural lead — responsible for load case definition, FEA, and the topology optimization workflow.</p>
+
+      <h3>Load Cases</h3>
+      <p>We identified three critical load cases: max-g pull-up maneuver (3g), hard landing impact (5g vertical), and asymmetric gust loading. Each was translated into equivalent static loads applied at motor mounts and landing gear attachment points.</p>
+      <h3>Topology Optimization</h3>
+      <p>Using ANSYS Mechanical's topology optimization module, I set up the design domain with non-design regions at all attachment points. The optimizer was run with a 50% volume fraction target and minimum member size constraint to ensure printability.</p>
+      <h3>Validation</h3>
+      <p>The optimized geometry was re-meshed and run through a full FEA validation pass. All safety factors exceeded 2.0 under the defined load cases. Final mass came in at 312g versus the original 480g — a 35% reduction.</p>
+      <h3>Manufacturing</h3>
+      <p>The optimized frame was 3D printed in PETG for proof of concept, then a final version was cut from 3mm carbon fiber sheet using a waterjet cutter. Physical load testing confirmed the simulation predictions within 8%.</p>
+
+  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+</div>
+
+<div class="detail-nav">
+  <a href="heat-exchanger.html">← Compact Heat Exchanger Design</a>
+  <a href="../index.html#projects">All Projects</a>
+  <a href="robotic-gripper.html">Robotic Gripper Assembly →</a>
+</div>
+
+<footer>
+  <span class="footer-text">Alex Chen — ME Student — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+</body>
+</html>

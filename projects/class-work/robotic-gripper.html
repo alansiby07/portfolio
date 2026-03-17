@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotic Gripper Assembly — Alex Chen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Alex Chen</a>
+  <ul class="nav-links">
+    <li><a href="../../index.html#about">About</a></li>
+    <li><a href="../../index.html#skills">Skills</a></li>
+    <li><a href="../../index.html#projects">Projects</a></li>
+    <li><a href="../../index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-detail-hero">
+  <a href="../../index.html#projects" class="back-link">← Back to Projects</a>
+  <div class="detail-eyebrow">Mechanism Design</div>
+  <h1 class="detail-title">Robotic Gripper Assembly</h1>
+  <p class="detail-summary">Designed a four-bar linkage gripper mechanism targeting sub-millimeter repeatability for a simulated surgical robotics use case, with full assembly drawings and tolerance stack-up analysis.</p>
+</div>
+
+<div class="detail-meta-bar">
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Category</span>
+    <span class="detail-meta-value">Semester Project — Machine Design</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Year</span>
+    <span class="detail-meta-value">2023</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Tools</span>
+    <span class="detail-meta-value">SolidWorks, MATLAB</span>
+  </div>
+</div>
+
+<div class="detail-body">
+  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+
+  <h3>Overview</h3>
+  <p>For Machine Design (ME 4210), I designed a compliant parallel-jaw gripper actuated by a four-bar linkage. The target application was a minimally invasive surgical robot where precision and compactness are critical.</p>
+
+      <h3>Kinematic Synthesis</h3>
+      <p>I used Freudenstein's equation in MATLAB to synthesize a four-bar linkage that produced a near-linear jaw closing motion over a 15mm travel range. Multiple candidate solutions were evaluated for transmission angle and mechanical advantage.</p>
+      <h3>Tolerance Stack-Up</h3>
+      <p>With a repeatability target of ±0.1mm at the jaw tips, I performed a worst-case and RSS tolerance stack-up analysis on the full kinematic chain. This drove tighter tolerances on the coupler link pivot holes and necessitated specifying a precision bearing at the crank pivot.</p>
+      <h3>SolidWorks Assembly</h3>
+      <p>The full assembly was modeled in SolidWorks with all mating conditions applied. I verified the kinematic motion using SolidWorks Motion and generated a full drawing package including an assembly drawing, BOM, and detail drawings for each machined component.</p>
+      <h3>Lessons Learned</h3>
+      <p>This project taught me how quickly tolerances compound in a multi-link mechanism. The RSS analysis was much more realistic than worst-case, and it was a valuable exercise in deciding where to spend the tolerance budget.</p>
+
+  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+</div>
+
+<div class="detail-nav">
+  <a href="drone-frame.html">← Lightweight Drone Frame</a>
+  <a href="../index.html#projects">All Projects</a>
+  <a href="tool-handle.html">Ergonomic Tool Handle Redesign →</a>
+</div>
+
+<footer>
+  <span class="footer-text">Alex Chen — ME Student — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+</body>
+</html>
