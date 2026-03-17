@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Chen — Mechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-soft: #6b6b65;
+    --ink-faint: #c4c4bc;
+    --paper: #f7f6f2;
+    --paper-warm: #eeecea;
+    --accent: #c8502a;
+    --accent-light: #f0e8e4;
+    --rule: #e0dfd9;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    padding-top: 5rem;
+    gap: 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2rem; height: 1px; background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; color: var(--ink-soft);
+    max-width: 38ch; line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--ink); color: var(--paper);
+    padding: 0.85rem 1.75rem; border-radius: 2px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--ink-soft); border-bottom: 1px solid var(--ink-faint);
+    padding-bottom: 2px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* Hero illustration: engineering blueprint-style graphic */
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .blueprint {
+    width: 100%; max-width: 480px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  .blueprint svg { width: 100%; height: 100%; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 4rem; border-bottom: 1px solid var(--rule); }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-num {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); min-width: 3ch;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-body {
+    font-size: 1.05rem; font-weight: 300; color: var(--ink-soft);
+    line-height: 1.9;
+  }
+  .about-body p + p { margin-top: 1.25rem; }
+  .about-body strong { color: var(--ink); font-weight: 500; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .stat-box {
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    background: #fff;
+  }
+  .stat-box .num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-box .label {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .skill-cat {
+    padding: 2rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .skill-cat:nth-child(3n) { border-right: none; }
+  .skill-cat:nth-last-child(-n+3) { border-bottom: none; }
+  .skill-cat-title {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .skill-cat-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--accent-light);
+  }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 0.92rem; font-weight: 300; color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-bar {
+    width: 60px; height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; background: var(--accent); border-radius: 2px;
+    transform-origin: left;
+    animation: growBar 1s ease forwards;
+    transform: scaleX(0);
+  }
+  @keyframes growBar { to { transform: scaleX(1); } }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .project-card {
+    background: var(--paper);
+    padding: 2.5rem;
+    transition: background 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--accent);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover { background: #fff; }
+  .project-card:hover::before { transform: scaleY(1); }
+  .project-tag {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-light); padding: 0.25rem 0.6rem;
+    display: inline-block; margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .project-desc {
+    font-size: 0.9rem; font-weight: 300; color: var(--ink-soft);
+    line-height: 1.75; margin-bottom: 1.5rem;
+  }
+  .project-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .project-meta span {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint);
+    display: flex; align-items: center; gap: 0.35rem;
+  }
+  .project-meta span b { color: var(--ink-soft); }
+
+  /* ── PROJECT SUB-SECTIONS ── */
+  .projects-subsection { margin-top: 4rem; }
+  .projects-sub-header {
+    display: flex; align-items: center; gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .projects-sub-label {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .projects-sub-rule {
+    flex: 1; height: 1px; background: var(--rule);
+  }
+  .projects-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .project-card-sm {
+    background: var(--paper-warm);
+    padding: 1.75rem;
+    transition: background 0.25s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card-sm::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--ink-faint);
+    transform: scaleY(0); transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+  .project-card-sm:hover { background: #fff; }
+  .project-card-sm:hover::before { transform: scaleY(1); }
+  .project-tag-sm {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-soft);
+    background: var(--rule); padding: 0.2rem 0.55rem;
+    display: inline-block; margin-bottom: 0.85rem;
+  }
+  .project-title-sm {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  .project-desc-sm {
+    font-size: 0.85rem; font-weight: 300; color: var(--ink-soft);
+    line-height: 1.7; margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 900px) {
+    .projects-sub-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-intro {
+    font-size: 1.05rem; font-weight: 300; color: var(--ink-soft);
+    line-height: 1.9;
+  }
+  .contact-intro p + p { margin-top: 1rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    transition: padding-left 0.2s;
+    group: true;
+  }
+  .contact-link:first-child { border-top: 1px solid var(--rule); }
+  .contact-link:hover { padding-left: 0.5rem; }
+  .contact-link-left { display: flex; flex-direction: column; gap: 0.2rem; }
+  .contact-link-platform {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+  }
+  .contact-link-value {
+    font-size: 0.95rem; font-weight: 400; color: var(--ink);
+  }
+  .contact-link-arrow { color: var(--accent); font-size: 1.1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-text {
+    font-size: 0.78rem; color: var(--ink-faint); font-weight: 300;
+  }
+  .footer-copy {
+    font-size: 0.78rem; color: var(--ink-faint);
+    font-family: var(--serif); font-style: italic;
+  }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 2rem; }
+    .hero { grid-template-columns: 1fr; padding: 6rem 2rem 4rem; min-height: auto; gap: 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 2rem; }
+    .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-cat:nth-child(3n) { border-right: 1px solid var(--rule); }
+    .projects-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Alex Chen</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Mechanical Engineering Student</div>
+    <h1>Learning by<br><em>building</em><br>things.</h1>
+    <p class="hero-sub">I'm a mechanical engineering student with a hands-on approach — from high school robotics to personal shop projects, I build things to understand how they work.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn-ghost">Get in touch →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="blueprint">
+      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .grid-line { stroke: #e0dfd9; stroke-width: 0.5; }
+            .dim-line { stroke: #c8502a; stroke-width: 0.75; stroke-dasharray: 4,3; }
+            .dim-text { font-family: 'DM Sans', sans-serif; font-size: 9px; fill: #c8502a; }
+            .part { fill: none; stroke: #1a1a18; stroke-width: 1.5; }
+            .hatch { fill: none; stroke: #1a1a18; stroke-width: 0.6; opacity: 0.35; }
+            .center { stroke: #c8502a; stroke-width: 0.75; stroke-dasharray: 8,3,1,3; }
+            .label { font-family: 'DM Serif Display', serif; font-size: 11px; fill: #6b6b65; font-style: italic; }
+          </style>
+          <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 L 0 0 0 30" class="grid-line"/>
+          </pattern>
+          <clipPath id="clip-main">
+            <rect x="40" y="40" width="400" height="400"/>
+          </clipPath>
+        </defs>
+
+        <!-- Background -->
+        <rect width="480" height="480" fill="#f7f6f2"/>
+        <rect x="40" y="40" width="400" height="400" fill="none" stroke="#e0dfd9" stroke-width="1"/>
+        <rect x="40" y="40" width="400" height="400" fill="url(#grid)"/>
+
+        <!-- Gear (top-left area) -->
+        <g transform="translate(160, 170)" clip-path="url(#clip-main)">
+          <!-- Gear body -->
+          <circle cx="0" cy="0" r="70" class="part"/>
+          <circle cx="0" cy="0" r="22" class="part"/>
+          <!-- Gear teeth -->
+          <g id="gear-teeth">
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(30)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(60)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(90)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(120)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(150)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(180)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(210)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(240)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(270)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(300)"/>
+            <rect x="-8" y="-82" width="16" height="18" rx="2" class="part" transform="rotate(330)"/>
+          </g>
+          <!-- Spokes -->
+          <line x1="0" y1="-60" x2="0" y2="-24" class="part" stroke-width="4"/>
+          <line x1="0" y1="-60" x2="0" y2="-24" class="part" stroke-width="4" transform="rotate(120)"/>
+          <line x1="0" y1="-60" x2="0" y2="-24" class="part" stroke-width="4" transform="rotate(240)"/>
+          <!-- Center cross -->
+          <line x1="-80" y1="0" x2="80" y2="0" class="center"/>
+          <line x1="0" y1="-80" x2="0" y2="80" class="center"/>
+        </g>
+
+        <!-- Dimension lines for gear -->
+        <line x1="90" y1="155" x2="90" y2="185" class="dim-line"/>
+        <line x1="90" y1="170" x2="75" y2="170" class="dim-line"/>
+        <text x="62" y="167" class="dim-text">∅140</text>
+
+        <!-- Bracket / plate (right side) -->
+        <g transform="translate(330, 200)">
+          <rect x="-45" y="-90" width="90" height="180" rx="2" class="part"/>
+          <!-- Holes -->
+          <circle cx="-20" cy="-65" r="10" class="part"/>
+          <circle cx="20" cy="-65" r="10" class="part"/>
+          <circle cx="-20" cy="65" r="10" class="part"/>
+          <circle cx="20" cy="65" r="10" class="part"/>
+          <!-- Slot -->
+          <rect x="-15" y="-20" width="30" height="40" rx="15" class="part"/>
+          <!-- Hatch fills for section -->
+          <line x1="-44" y1="-80" x2="-34" y2="-90" class="hatch"/>
+          <line x1="-44" y1="-60" x2="-14" y2="-90" class="hatch"/>
+          <line x1="-44" y1="-40" x2="-4" y2="-80" class="hatch" opacity="0"/>
+          <!-- Centerlines -->
+          <line x1="-55" y1="0" x2="55" y2="0" class="center"/>
+          <line x1="0" y1="-100" x2="0" y2="100" class="center"/>
+        </g>
+
+        <!-- Dim line for bracket -->
+        <line x1="380" y1="110" x2="380" y2="290" class="dim-line"/>
+        <line x1="285" y1="110" x2="380" y2="110" class="dim-line"/>
+        <line x1="285" y1="290" x2="380" y2="290" class="dim-line"/>
+        <text x="383" y="205" class="dim-text" transform="rotate(90, 383, 205)">180.0</text>
+
+        <!-- Connecting rod (bottom) -->
+        <g transform="translate(200, 355)">
+          <rect x="-110" y="-12" width="220" height="24" rx="12" class="part"/>
+          <circle cx="-90" cy="0" r="16" class="part"/>
+          <circle cx="-90" cy="0" r="7" class="part"/>
+          <circle cx="90" cy="0" r="16" class="part"/>
+          <circle cx="90" cy="0" r="7" class="part"/>
+          <line x1="-200" y1="0" x2="200" y2="0" class="center"/>
+        </g>
+
+        <!-- Labels -->
+        <text x="58" y="380" class="label">Spur Gear — Module 2</text>
+        <text x="298" y="390" class="label">Bracket Assy.</text>
+
+        <!-- Title block (bottom bar) -->
+        <rect x="40" y="415" width="400" height="25" fill="#1a1a18" opacity="0.04"/>
+        <text x="52" y="431" style="font-family: 'DM Sans'; font-size: 8px; fill: #6b6b65; letter-spacing: 0.1em; text-transform: uppercase;">MECHANICAL ASSEMBLY — REV A — ALEX CHEN</text>
+        <text x="392" y="431" style="font-family: 'DM Sans'; font-size: 8px; fill: #c8502a;" text-anchor="end">DWG-001</text>
+
+        <!-- Corner marks -->
+        <path d="M40,50 L50,40" stroke="#c8502a" stroke-width="0.75"/>
+        <path d="M430,50 L440,40" stroke="#c8502a" stroke-width="0.75"/>
+        <path d="M40,430 L50,440" stroke="#c8502a" stroke-width="0.75"/>
+        <path d="M430,430 L440,440" stroke="#c8502a" stroke-width="0.75"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2>About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-body reveal reveal-delay-1">
+      <p>I'm a mechanical engineering student with a curiosity for <strong>how things work</strong> and a drive to build them myself. From competitive robotics in high school to coursework in thermodynamics and materials science, I'm building the foundation for a career in engineering.</p>
+      <p>I learn best by doing — whether that's machining a part from scratch, running my first FEA simulation, or rebuilding a vintage lathe in my garage. I care about craft, precision, and understanding the "why" behind every design decision.</p>
+      <p>Currently seeking <strong>internships</strong> and <strong>co-op opportunities</strong> in mechanical design, product development, or manufacturing for Summer 2025.</p>
+    </div>
+    <div class="about-stats reveal reveal-delay-2">
+      <div class="stat-box">
+        <div class="num">3rd</div>
+        <div class="label">Year Student</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">10+</div>
+        <div class="label">Projects Built</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">3.7</div>
+        <div class="label">GPA</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">B.S.</div>
+        <div class="label">Mech. Eng. (In Progress)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2>Skills & Expertise</h2>
+  </div>
+  <div class="skills-grid reveal reveal-delay-1">
+    <div class="skill-cat">
+      <div class="skill-cat-title">Design & CAD</div>
+      <ul class="skill-list">
+        <li>SolidWorks<div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div></li>
+        <li>AutoCAD<div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></li>
+        <li>Fusion 360<div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></li>
+        <li>GD&T / Tolerancing<div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></li>
+      </ul>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Analysis & Simulation</div>
+      <ul class="skill-list">
+        <li>FEA (ANSYS)<div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></li>
+        <li>CFD Basics<div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></li>
+        <li>Thermal Analysis<div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></li>
+        <li>MATLAB / Python<div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></li>
+      </ul>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Manufacturing</div>
+      <ul class="skill-list">
+        <li>CNC Machining<div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div></li>
+        <li>3D Printing / AM<div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></li>
+        <li>Sheet Metal / Welding<div class="skill-bar"><div class="skill-bar-fill" style="width:72%"></div></div></li>
+        <li>DFM / DFA<div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2>Coursework & Academic Projects</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <span class="project-tag">Thermal Systems</span>
+      <h3 class="project-title">Compact Heat Exchanger Design</h3>
+      <p class="project-desc">Course project for Heat Transfer. Designed and iterated on a cross-flow heat exchanger using CFD simulation, reducing thermal resistance by 22% over the baseline design through fin geometry changes.</p>
+      <div class="project-meta">
+        <span>Tools: <b>ANSYS Fluent, SolidWorks</b></span>
+        <span>Year: <b>2024</b></span>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-1">
+      <span class="project-tag">Structural Analysis</span>
+      <h3 class="project-title">Lightweight Drone Frame</h3>
+      <p class="project-desc">Senior design team project. Applied topology optimization to a UAV airframe, achieving a 35% weight reduction while meeting required safety factors — verified with hand calculations and FEA.</p>
+      <div class="project-meta">
+        <span>Tools: <b>ANSYS, Fusion 360</b></span>
+        <span>Year: <b>2024</b></span>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-2">
+      <span class="project-tag">Mechanism Design</span>
+      <h3 class="project-title">Robotic Gripper Assembly</h3>
+      <p class="project-desc">Semester project for Machine Design. Designed a four-bar linkage gripper with full assembly drawings and tolerance stack-up analysis, targeting sub-millimeter repeatability for a simulated surgical use case.</p>
+      <div class="project-meta">
+        <span>Tools: <b>SolidWorks, MATLAB</b></span>
+        <span>Year: <b>2023</b></span>
+      </div>
+    </div>
+    <div class="project-card reveal reveal-delay-3">
+      <span class="project-tag">Product Development</span>
+      <h3 class="project-title">Ergonomic Tool Handle Redesign</h3>
+      <p class="project-desc">Capstone project in collaboration with a local tool manufacturer. Redesigned a hand tool handle using biomechanical principles, and produced injection-molding-ready geometry with DFM documentation.</p>
+      <div class="project-meta">
+        <span>Tools: <b>SolidWorks, 3D Printing</b></span>
+        <span>Year: <b>2023</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIGH SCHOOL PROJECTS -->
+  <div class="projects-subsection reveal">
+    <div class="projects-sub-header">
+      <span class="projects-sub-label">High School Projects</span>
+      <div class="projects-sub-rule"></div>
+    </div>
+    <div class="projects-sub-grid">
+      <div class="project-card-sm reveal">
+        <span class="project-tag-sm">Robotics / FIRST</span>
+        <h3 class="project-title-sm">FIRST Robotics Competition Robot</h3>
+        <p class="project-desc-sm">Lead mechanical designer on a 120 lb competition robot. Designed a 4-bar ball intake mechanism and belt-driven shooter assembly using CAD, fabricated on CNC router and lathe.</p>
+        <div class="project-meta">
+          <span>Tools: <b>Onshape, CNC Router</b></span>
+          <span>Year: <b>2021</b></span>
+        </div>
+      </div>
+      <div class="project-card-sm reveal reveal-delay-1">
+        <span class="project-tag-sm">Science Fair</span>
+        <h3 class="project-title-sm">Passive Solar Water Heater</h3>
+        <p class="project-desc-sm">Built and tested a low-cost thermosiphon solar collector for a regional science fair. Evaluated panel geometry and insulation materials, achieving a 41°C temperature rise under test conditions.</p>
+        <div class="project-meta">
+          <span>Tools: <b>Handmade Prototype</b></span>
+          <span>Year: <b>2020</b></span>
+        </div>
+      </div>
+      <div class="project-card-sm reveal reveal-delay-2">
+        <span class="project-tag-sm">Shop Class</span>
+        <h3 class="project-title-sm">Welded Steel Stool</h3>
+        <p class="project-desc-sm">Designed and fabricated a load-bearing steel stool from square stock using MIG welding and angle grinding. Applied basic stress calculations to verify weld joint adequacy before fabrication.</p>
+        <div class="project-meta">
+          <span>Tools: <b>MIG Welder, Angle Grinder</b></span>
+          <span>Year: <b>2019</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONAL PROJECTS -->
+  <div class="projects-subsection reveal">
+    <div class="projects-sub-header">
+      <span class="projects-sub-label">Personal Projects</span>
+      <div class="projects-sub-rule"></div>
+    </div>
+    <div class="projects-sub-grid">
+      <div class="project-card-sm reveal">
+        <span class="project-tag-sm">Home Build</span>
+        <h3 class="project-title-sm">Custom Mechanical Keyboard</h3>
+        <p class="project-desc-sm">Designed and machined a 65% aluminum keyboard case with a gasket-mount PCB layout. Modeled tolerances for o-ring gaskets to achieve desired typing feel, then CNC-milled from 6061 billet.</p>
+        <div class="project-meta">
+          <span>Tools: <b>Fusion 360, CNC Mill</b></span>
+          <span>Year: <b>2023</b></span>
+        </div>
+      </div>
+      <div class="project-card-sm reveal reveal-delay-1">
+        <span class="project-tag-sm">3D Printing</span>
+        <h3 class="project-title-sm">Parametric Bike Mount System</h3>
+        <p class="project-desc-sm">Designed a fully parametric phone and accessory mount system for bicycle handlebars. Published on Printables; downloaded 800+ times. Used FDM print orientation analysis to maximize layer-line strength.</p>
+        <div class="project-meta">
+          <span>Tools: <b>SolidWorks, FDM Printer</b></span>
+          <span>Year: <b>2022</b></span>
+        </div>
+      </div>
+      <div class="project-card-sm reveal reveal-delay-2">
+        <span class="project-tag-sm">Restoration</span>
+        <h3 class="project-title-sm">Vintage Lathe Rebuild</h3>
+        <p class="project-desc-sm">Fully disassembled, cleaned, and rebuilt a 1960s South Bend bench lathe. Sourced replacement bearings and ground a new tool post, restoring the machine to 0.001" runout accuracy.</p>
+        <div class="project-meta">
+          <span>Tools: <b>Hand Tools, Surface Grinder</b></span>
+          <span>Year: <b>2024</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2>Get in Touch</h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-intro reveal reveal-delay-1">
+      <p>I'm actively looking for <strong>internship and co-op opportunities</strong> for Summer 2025. If you're working on something interesting in mechanical design, manufacturing, or product development, I'd love to hear about it.</p>
+      <p>Based in Austin, TX. Open to in-person roles locally and remote/hybrid opportunities elsewhere.</p>
+    </div>
+    <div class="contact-links reveal reveal-delay-2">
+      <a href="mailto:alex.chen@email.com" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">Email</span>
+          <span class="contact-link-value">alex.chen@email.com</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">LinkedIn</span>
+          <span class="contact-link-value">linkedin.com/in/alexchen-me</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://github.com" target="_blank" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">GitHub</span>
+          <span class="contact-link-value">github.com/alexchen-eng</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="#" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">Résumé</span>
+          <span class="contact-link-value">Download PDF</span>
+        </div>
+        <span class="contact-link-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">Alex Chen — ME Student — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Hero text stagger on load
+  window.addEventListener('load', () => {
+    const heroEls = document.querySelectorAll('.hero-text > *');
+    heroEls.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.7s ease ${i * 0.15}s, transform 0.7s ease ${i * 0.15}s`;
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, 80);
+    });
+    const visual = document.querySelector('.hero-visual');
+    if (visual) {
+      visual.style.opacity = '0';
+      visual.style.transition = 'opacity 1.2s ease 0.4s';
+      setTimeout(() => { visual.style.opacity = '1'; }, 80);
+    }
+  });
+
+  // Animate skill bars when visible
+  const skillBars = document.querySelectorAll('.skill-bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = 'growBar 1.2s cubic-bezier(0.4,0,0.2,1) forwards';
+      }
+    });
+  }, { threshold: 0.5 });
+  skillBars.forEach(b => barObserver.observe(b));
+</script>
+</body>
+</html>
