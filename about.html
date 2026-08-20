@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.about-body { padding: 4rem; border-bottom: 1px solid var(--rule); }
+.about-grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; align-items: start;
+}
+.about-text { font-size: 1.05rem; font-weight: 300; color: var(--ink-soft); line-height: 1.9; }
+.about-text p + p { margin-top: 1.25rem; }
+.about-text strong { color: var(--ink); font-weight: 500; }
+.about-aside {}
+.aside-block { margin-bottom: 2.5rem; }
+.aside-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.aside-label::after { content:''; flex:1; height:1px; background:var(--accent-light); }
+.aside-list { list-style: none; }
+.aside-list li {
+  font-size: 0.88rem; font-weight: 300; color: var(--ink-soft);
+  padding: 0.35rem 0; border-bottom: 1px solid var(--rule);
+}
+.aside-list li:last-child { border-bottom: none; }
+.aside-stat {
+  font-family: var(--serif); font-size: 2.2rem;
+  color: var(--accent); line-height: 1; display: block; margin-bottom: 0.2rem;
+}
+.stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem; }
+.stat-box { border: 1px solid var(--rule); padding: 1.25rem; background: #fff; }
+.stat-box .num { font-family: var(--serif); font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+.stat-box .lbl { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+
+@media (max-width: 900px) {
+  .about-body { padding: 2.5rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <div class="page-hero reveal">
+    <div class="page-eyebrow">Background</div>
+    <h1 class="page-title">About <em>Me</em></h1>
+    <p class="page-sub">Mechanical engineering student, builder, and tinkerer based in Austin, TX.</p>
+  </div>
+
+  <div class="about-body">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm an incoming freshman at <strong>UT Austin</strong>, planning to study Aerospace or Mechanical Engineering. I gravitate toward <strong>aerospace</strong> specifically — there's something about the ability to design machines as complex as a rocket that can take people to space that I find endlessly compelling, and I want to be part of pushing that industry forward.</p>
+        <p>This past summer, I worked as a research intern at the <strong>Institute for Computing in Research</strong>, where I built a Python simulation of a spacecraft attitude control system — modeling reaction wheel dynamics and a PD controller, then optimizing performance through a grid-search routine. I co-authored the findings and published them on engrXiv. I was also selected as a <strong>NASA High School Aerospace Scholar</strong>, where I worked on a team designing satellite enhancements for lunar exploration.</p>
+        <p>My interest in engineering started well before that, in Round Rock ISD's engineering pathway — coursework in CAD modeling, human-centered design, and product redesign, including a full ergonomic and magnetic-charging redesign of the Apple Magic Mouse.</p>
+        <p>I learn best by doing — whether that's debugging a simulation that's quietly producing wrong answers, machining a part from scratch, or rebuilding a vintage lathe in my garage. I care about <strong>craft, precision,</strong> and understanding the "why" behind every design decision.</p>
+        <p>Outside of engineering, I play basketball, run my own youth basketball training business, love video games like NBA2K and FIFA, and enjoy rock climbing whenever I get the chance.</p>
+      </div>
+      <div class="about-aside reveal reveal-delay-1">
+        <div class="stats-row">
+          <div class="stat-box"><div class="num">5.66</div><div class="lbl">Weighted GPA</div></div>
+          <div class="stat-box"><div class="num">4.0</div><div class="lbl">ACC GPA</div></div>
+          <div class="stat-box"><div class="num">1</div><div class="lbl">Publication</div></div>
+          <div class="stat-box"><div class="num">'26</div><div class="lbl">UT Austin</div></div>
+        </div>
+        <div class="aside-block">
+          <div class="aside-label">CAD & Design</div>
+          <ul class="aside-list">
+            <li>Autodesk Inventor</li>
+          </ul>
+        </div>
+        <div class="aside-block">
+          <div class="aside-label">Programming & Research</div>
+          <ul class="aside-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>Data Analysis</li>
+            <li>Technical Writing</li>
+          </ul>
+        </div>
+        <div class="aside-block">
+          <div class="aside-label">Tools</div>
+          <ul class="aside-list">
+            <li>NumPy / Matplotlib</li>
+            <li>LaTeX</li>
+            <li>Control Systems Modeling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Incoming UT Austin Freshman — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

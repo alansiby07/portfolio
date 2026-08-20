@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puzzle Cube — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  .puzzle-hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 1.75rem;
+  }
+  .photo-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    aspect-ratio: 4 / 3;
+  }
+  .photo-gallery.two-up { grid-template-columns: repeat(2, 1fr); }
+  .photo-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: -1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .puzzle-video {
+    width: 100%;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: block;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+
+  @media (max-width: 640px) {
+    .photo-gallery, .photo-gallery.two-up { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="../../../projects.html">Projects</a></li>
+    <li><a href="../../../resume.html">Resume</a></li>
+    <li><a href="../../../about.html">About</a></li>
+    <li><a href="../../../contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-detail-hero">
+  <a href="../../../projects.html" class="back-link">← Back to Projects</a>
+  <div class="detail-eyebrow">CAD Design</div>
+  <h1 class="detail-title">Puzzle Cube</h1>
+  <p class="detail-summary">Designed a 3D wooden puzzle system from scrap hardwood cubes, turning manufacturing waste into a sellable product for a local furniture company.</p>
+</div>
+
+<div class="detail-meta-bar">
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Category</span>
+    <span class="detail-meta-value">Intro to Engineering Design</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Year</span>
+    <span class="detail-meta-value">2023</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Tools</span>
+    <span class="detail-meta-value">Autodesk Inventor</span>
+  </div>
+</div>
+
+<div class="detail-body">
+
+  <img src="media/assembled-cube-photo.jpg" alt="Assembled physical puzzle cube on a desk" class="puzzle-hero-img">
+  <p class="photo-caption">The assembled puzzle cube — six interlocking pieces forming a complete 3D cube</p>
+
+  <h3>Overview</h3>
+  <p>A local office furniture manufacturing company throws away tens of thousands of scrap ¾" hardwood cubes as a byproduct of its furniture construction process. Fine Office Furniture, Inc. wanted to return value to this waste product by using it as raw material for items sellable in their showroom. The brief: design, build, test, document, and present a 3D puzzle system made from the scrap cubes, with a challenge level appropriate for high school students.</p>
+
+  <h3>Concept Sketches</h3>
+  <p>Before modeling anything in Inventor, I sketched each of the six puzzle pieces by hand on isometric grid paper — working out how the individual cube units would stack and interlock to eventually form a complete cube.</p>
+  <div class="photo-gallery">
+    <img src="media/sketch-black.jpg" alt="Hand sketch of the black puzzle piece on isometric grid paper">
+    <img src="media/sketch-red.jpg" alt="Hand sketch of the red puzzle piece on isometric grid paper">
+    <img src="media/sketch-yellow.jpg" alt="Hand sketch of the yellow puzzle piece on isometric grid paper">
+    <img src="media/sketch-darkgreen.jpg" alt="Hand sketch of the dark green puzzle piece on isometric grid paper">
+    <img src="media/sketch-lightgreen.jpg" alt="Hand sketch of the light green puzzle piece on isometric grid paper">
+    <img src="media/sketch-pink.jpg" alt="Hand sketch of the pink puzzle piece on isometric grid paper">
+  </div>
+  <p class="photo-caption">Hand sketches for each of the six puzzle pieces, drawn on isometric grid paper before modeling in Inventor</p>
+
+  <h3>Design Process</h3>
+  <p>While designing the parts in Inventor, I learned how to sketch, extrude, and create detailed models of each puzzle piece. Once the individual pieces were modeled, I assembled every part into a complete puzzle cube using constraints like mate and flush.</p>
+  <div class="photo-gallery">
+    <img src="media/cad-black-piece.jpg" alt="Inventor 3D model of the black puzzle piece">
+    <img src="media/cad-red-piece.jpg" alt="Inventor 3D model of the red puzzle piece">
+    <img src="media/cad-yellow-piece.jpg" alt="Inventor 3D model of the yellow puzzle piece">
+    <img src="media/cad-darkgreen-piece.jpg" alt="Inventor 3D model of the dark green puzzle piece">
+    <img src="media/cad-lightgreen-piece.jpg" alt="Inventor 3D model of the light green puzzle piece">
+    <img src="media/cad-pink-piece.jpg" alt="Inventor 3D model of the pink puzzle piece">
+  </div>
+  <p class="photo-caption">Each of the six pieces modeled individually in Inventor: Black, Red, Yellow, Dark Green, Light Green, and Pink</p>
+
+  <h3>Assembly</h3>
+  <p>I learned how to create a presentation file with the fully assembled cube and generate an exploded view — allowing the design to be presented quickly and effectively.</p>
+  <div class="photo-gallery two-up">
+    <img src="media/cad-exploded-view.jpg" alt="Exploded view of the puzzle cube showing all six pieces separated">
+    <img src="media/cad-full-assembly.jpg" alt="Full assembled Inventor model of the puzzle cube">
+  </div>
+  <p class="photo-caption">Exploded assembly view and the fully assembled cube model in Inventor</p>
+
+  <video class="puzzle-video" controls poster="media/assembled-cube-photo.jpg">
+    <source src="media/puzzle-cube-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="photo-caption">Assembly walkthrough video</p>
+
+  <h3>Documentation</h3>
+  <p>I also learned how to create formal drawing files and format them to meet the project's documentation criteria — a full drawing sheet for each piece, plus a combined sheet for the whole assembly.</p>
+  <div class="photo-gallery">
+    <img src="media/drawing-black-piece.jpg" alt="Inventor drawing sheet for the black piece">
+    <img src="media/drawing-red-piece.jpg" alt="Inventor drawing sheet for the red piece">
+    <img src="media/drawing-yellow-piece.jpg" alt="Inventor drawing sheet for the yellow piece">
+    <img src="media/drawing-darkgreen-piece.jpg" alt="Inventor drawing sheet for the dark green piece">
+    <img src="media/drawing-lightgreen-piece.jpg" alt="Inventor drawing sheet for the light green piece">
+    <img src="media/drawing-pink-piece.jpg" alt="Inventor drawing sheet for the pink piece">
+  </div>
+  <img src="media/drawing-whole-cube-assembly.jpg" alt="Inventor drawing sheet for the complete cube assembly" class="puzzle-hero-img">
+  <p class="photo-caption">Formal Inventor drawing sheets — one per piece, plus the complete assembly</p>
+
+  <h3>Pieces</h3>
+  <p>The final cube was made of six interlocking pieces (Pink, Red, Yellow, Black, Light Green, and Dark Green), each individually modeled, sketched, and drawn in Inventor before being assembled into the final puzzle.</p>
+
+</div>
+
+<div class="detail-nav">
+  <a href="../magic-snap/magic-snap.html">← Magic Snap</a>
+  <a href="../../../projects.html">All Projects</a>
+  <a href="../cardboard-chair/human-centered-design.html">Human Centered Design →</a>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Aspiring Aerospace/Mechanical Engineer — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+</body>
+</html>

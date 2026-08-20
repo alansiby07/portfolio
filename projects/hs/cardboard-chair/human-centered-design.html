@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Centered Design — Cardboard Chair — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  .chair-hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 1.75rem;
+  }
+  .photo-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    aspect-ratio: 4 / 3;
+  }
+  .photo-gallery.two-up { grid-template-columns: repeat(2, 1fr); }
+  .photo-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: -1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .slides-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 60%; /* 5:3 aspect ratio matches Slides default */
+    margin: 1rem 0 0.5rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .slides-embed-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .slides-fallback-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .slides-fallback-link:hover { opacity: 0.7; }
+
+  @media (max-width: 640px) {
+    .photo-gallery { grid-template-columns: 1fr; }
+    .slides-embed-wrapper { padding-top: 75%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="../../../projects.html">Projects</a></li>
+    <li><a href="../../../resume.html">Resume</a></li>
+    <li><a href="../../../about.html">About</a></li>
+    <li><a href="../../../contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-detail-hero">
+  <a href="../../../projects.html" class="back-link">← Back to Projects</a>
+  <div class="detail-eyebrow">Ergonomics</div>
+  <h1 class="detail-title">Human Centered Design — Cardboard Chair</h1>
+  <p class="detail-summary">Designed and built a full-size cardboard chair using anthropometric data and human-centered design principles to accommodate a wide range of body types.</p>
+</div>
+
+<div class="detail-meta-bar">
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Category</span>
+    <span class="detail-meta-value">Intro to Engineering Design</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Year</span>
+    <span class="detail-meta-value">2023</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Tools</span>
+    <span class="detail-meta-value">Cardstock, Cardboard, Anthropometric Tables</span>
+  </div>
+</div>
+
+<div class="detail-body">
+
+  <img src="media/final-chair.jpg" alt="Completed full-size cardboard chair" class="chair-hero-img">
+
+  <h3>Overview</h3>
+  <p>Humans come in all shapes, sizes, and abilities, so ergonomics and human-centered design are important considerations when designing chairs people will spend long periods sitting in. My team reviewed anthropometric tables and calculated the required dimensions for the chair, then brainstormed three possible chair concepts and used a decision matrix to select the top design.</p>
+
+  <p><a href="https://docs.google.com/presentation/d/1SMhipBJ1_r01zCPH0ULG8yVNowRVU6vBXCtBE_gL4JY/edit?usp=drive_link" target="_blank" style="color:var(--accent); font-weight:500;">View full presentation slides →</a></p>
+
+  <h3>Concept Sketches</h3>
+  <p>We sketched several chair concepts by hand, working through rough proportions before narrowing in on dimensions pulled from anthropometric tables. Each concept explored a different structural approach — from a splayed-leg "spider" design to a wider, more enclosed "comfy" form.</p>
+  <div class="photo-gallery">
+    <img src="media/concept-sketches-1.jpg" alt="Early chair concept sketches with dimension annotations">
+    <img src="media/concept-sketches-2.jpg" alt="Chair concept sketches exploring seat and back proportions">
+    <img src="media/concept-sketches-3.jpg" alt="Meagan concept sketches with labeled dimensions">
+    <img src="media/concept-sketches-4.jpg" alt="Spider, Thin, and Comfy chair concept sketches">
+  </div>
+
+  <h3>Final Design</h3>
+  <p>After comparing concepts with a decision matrix, we finalized a single design and produced a fully dimensioned sketch to guide construction.</p>
+  <img src="media/final-design-sketch.jpg" alt="Final dimensioned sketch of the chair design" class="chair-hero-img">
+
+  <h3>Prototyping</h3>
+  <p>After finalizing an annotated sketch of the design, we built a small-scale prototype using cardstock to verify the concept before committing to a full-size version. Once validated, we built a full-size model of the chair using cardboard.</p>
+  <div class="photo-gallery two-up">
+    <img src="media/prototype-1.jpg" alt="Small-scale cardstock prototype of the chair, front view">
+    <img src="media/prototype-2.jpg" alt="Small-scale cardstock prototype of the chair, angled view">
+  </div>
+  <p class="photo-caption">Cardstock prototype used to verify the design before the full-size cardboard build.</p>
+
+  <h3>What I Learned</h3>
+  <p>This project taught me how to analyze design constraints and produce an effective design using the materials and tools we were given. I also learned how to problem-solve — our group ran into several difficulties during construction, and together we worked through them to reach a working solution.</p>
+
+  <h3>Human-Centered Approach</h3>
+  <p>We learned how to design around the dimensions and characteristics of the human body, using anthropometric tables to create a chair suitable for a wide range of users rather than a single body type.</p>
+
+  <h3>Presentation Slides</h3>
+  <div class="slides-embed-wrapper">
+    <iframe src="https://docs.google.com/presentation/d/1SMhipBJ1_r01zCPH0ULG8yVNowRVU6vBXCtBE_gL4JY/embed?start=false&loop=false&delayms=3000" allowfullscreen="true"></iframe>
+  </div>
+  <a href="https://docs.google.com/presentation/d/1SMhipBJ1_r01zCPH0ULG8yVNowRVU6vBXCtBE_gL4JY/edit?usp=drive_link" target="_blank" class="slides-fallback-link">Open slides in Google Slides →</a>
+
+</div>
+
+<div class="detail-nav">
+  <a href="../puzzle-cube/puzzle-cube.html">← Puzzle Cube</a>
+  <a href="../../../projects.html">All Projects</a>
+  <a href="../castle-project/castle-project.html">Castle Project →</a>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Aspiring Aerospace/Mechanical Engineer — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+</body>
+</html>

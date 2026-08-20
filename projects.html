@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── ACCORDION ── */
+.accordion { border-top: 1px solid var(--rule); margin: 0 4rem; }
+.accordion-item { border-bottom: 1px solid var(--rule); }
+.accordion-trigger {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.75rem 0; text-align: left; gap: 1rem;
+}
+.accordion-trigger-left { display: flex; align-items: center; gap: 1.5rem; }
+.accordion-count {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-faint); min-width: 2ch;
+}
+.accordion-title {
+  font-family: var(--serif); font-size: 1.6rem;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+.accordion-num {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-faint);
+  background: var(--paper-warm); padding: 0.25rem 0.65rem;
+  border: 1px solid var(--rule);
+}
+.accordion-arrow {
+  font-size: 1rem; color: var(--ink-soft);
+  transition: transform 0.35s ease; flex-shrink: 0;
+}
+.accordion-item.open .accordion-arrow { transform: rotate(180deg); }
+.accordion-item.open .accordion-title { color: var(--accent); }
+
+.accordion-body {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+.accordion-item.open .accordion-body { grid-template-rows: 1fr; }
+.accordion-inner { overflow: hidden; }
+
+.projects-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.5px; background: var(--rule); border: 1px solid var(--rule);
+  margin-bottom: 2rem;
+}
+.project-card {
+  background: var(--paper); padding: 2.25rem;
+  text-decoration: none; color: inherit; display: block;
+  position: relative; overflow: hidden;
+  transition: background 0.22s;
+}
+.project-card::before {
+  content: ''; position: absolute; left:0; top:0; bottom:0; width:3px;
+  background: var(--accent); transform: scaleY(0); transform-origin: top;
+  transition: transform 0.28s ease;
+}
+.project-card:hover { background: #fff; }
+.project-card:hover::before { transform: scaleY(1); }
+.project-tag {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-light); padding: 0.2rem 0.55rem;
+  display: inline-block; margin-bottom: 0.9rem;
+}
+.project-title {
+  font-family: var(--serif); font-size: 1.35rem;
+  line-height: 1.2; margin-bottom: 0.6rem; letter-spacing: -0.01em;
+}
+.project-desc {
+  font-size: 0.87rem; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.75; margin-bottom: 1.25rem;
+}
+.project-meta { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.project-meta span {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.project-meta span b { color: var(--ink-soft); }
+.project-card .arrow {
+  position: absolute; bottom: 1.5rem; right: 1.5rem;
+  font-size: 0.9rem; color: var(--accent);
+  opacity: 0; transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.project-card:hover .arrow { opacity: 1; transform: translateX(0); }
+
+.accordion-empty {
+  padding: 2.5rem 0 3rem;
+  text-align: center;
+}
+.accordion-empty p {
+  font-size: 0.9rem; font-weight: 300; color: var(--ink-faint);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .accordion { margin: 0 1.5rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .accordion-title { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <div class="page-hero reveal">
+    <div class="page-eyebrow">Work</div>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-sub">A collection of academic coursework, high school builds, and personal projects — everything I've designed, analyzed, fabricated, or rebuilt.</p>
+  </div>
+
+  <div class="accordion">
+
+    <!-- RESEARCH -->
+    <div class="accordion-item open">
+      <button class="accordion-trigger" aria-expanded="true">
+        <div class="accordion-trigger-left">
+          <span class="accordion-title">Research</span>
+          <span class="accordion-num">1 project</span>
+        </div>
+        <span class="accordion-arrow">↓</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="projects-grid">
+            <a href="projects/research/spacecraft-attitude-control/spacecraft-attitude-control.html" class="project-card">
+              <span class="project-tag">Published — engrXiv</span>
+              <h3 class="project-title">1-Axis Spacecraft Attitude Control</h3>
+              <p class="project-desc">Research internship at the Institute for Computing in Research. Built a Python simulation of a spacecraft attitude control system with PD control and reaction wheel saturation, optimized via grid search, and published findings on engrXiv.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Python, NumPy, Matplotlib</b></span>
+                <span>Year: <b>2025</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACADEMIC -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <div class="accordion-trigger-left">
+          <span class="accordion-title">Academic</span>
+          <span class="accordion-num">Coming soon</span>
+        </div>
+        <span class="accordion-arrow">↓</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="accordion-empty">
+            <p>Coursework and projects from UT Austin will be added here once classes begin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HIGH SCHOOL -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <div class="accordion-trigger-left">
+          <span class="accordion-title">High School</span>
+          <span class="accordion-num">6 projects</span>
+        </div>
+        <span class="accordion-arrow">↓</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="projects-grid">
+            <a href="projects/hs/magic-snap/magic-snap.html" class="project-card">
+              <span class="project-tag">Product Redesign</span>
+              <h3 class="project-title">Magic Snap — Ergonomic Mouse Redesign</h3>
+              <p class="project-desc">Complete ergonomic redesign of the Apple Magic Mouse — addressing wrist strain, surface friction, and an awkward charging design through a modular, 3D-printable device.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Inventor, 3D Printing</b></span>
+                <span>Year: <b>2026</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/hs/puzzle-cube/puzzle-cube.html" class="project-card">
+              <span class="project-tag">CAD Design</span>
+              <h3 class="project-title">Puzzle Cube</h3>
+              <p class="project-desc">Designed a 3D wooden puzzle system from scrap hardwood cubes, turning manufacturing waste into a sellable product for a local furniture company.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Autodesk Inventor</b></span>
+                <span>Year: <b>2023</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/hs/cardboard-chair/human-centered-design.html" class="project-card">
+              <span class="project-tag">Ergonomics</span>
+              <h3 class="project-title">Human Centered Design — Cardboard Chair</h3>
+              <p class="project-desc">Designed and built a full-size cardboard chair using anthropometric data to accommodate a wide range of body types.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Cardstock, Cardboard</b></span>
+                <span>Year: <b>2023</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/hs/castle-project/castle-project.html" class="project-card">
+              <span class="project-tag">CAD Design</span>
+              <h3 class="project-title">Castle Project</h3>
+              <p class="project-desc">Modeled a highly detailed toy castle as a single Inventor part — including a moat, drawbridge, and turrets — built with advanced surfacing features.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Autodesk Inventor</b></span>
+                <span>Year: <b>2023</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/hs/trammel-toy/trammel-toy.html" class="project-card">
+              <span class="project-tag">Mechanism Design</span>
+              <h3 class="project-title">Trammel Toy</h3>
+              <p class="project-desc">Modeled and animated a trammel mechanism in Inventor, using motion constraints to simulate a rotating beam driving linear sliders.</p>
+              <div class="project-meta">
+                <span>Tools: <b>Autodesk Inventor</b></span>
+                <span>Year: <b>2023</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/hs/cam/cam-mechanism.html" class="project-card">
+              <span class="project-tag">CAD/CAM Design</span>
+              <h3 class="project-title">Cam-Driven Mechanism — Alien UFO Toy</h3>
+              <p class="project-desc">Designed a cam-and-follower mechanism in SolidWorks, then manufactured and assembled a working wooden toy where a rotating cam drives a pop-up "Alien UFO" figure.</p>
+              <div class="project-meta">
+                <span>Tools: <b>SolidWorks, Wood</b></span>
+                <span>Year: <b>2023</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="accordion-item">
+      <button class="accordion-trigger" aria-expanded="false">
+        <div class="accordion-trigger-left">
+          <span class="accordion-title">Personal</span>
+          <span class="accordion-num">2 projects</span>
+        </div>
+        <span class="accordion-arrow">↓</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="projects-grid">
+            <a href="projects/personal/rc-car/rc-car.html" class="project-card">
+              <span class="project-tag">Home Build</span>
+              <h3 class="project-title">RC Car (In Progress)</h3>
+              <p class="project-desc">Details coming soon.</p>
+              <div class="project-meta">
+                <span>Tools: <b>—</b></span>
+                <span>Year: <b>—</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+            <a href="projects/personal/cahrging-stand/charging-stand.html" class="project-card">
+              <span class="project-tag">Home Build</span>
+              <h3 class="project-title">Charging Stand (In Progress)</h3>
+              <p class="project-desc">Details coming soon.</p>
+              <div class="project-meta">
+                <span>Tools: <b>—</b></span>
+                <span>Year: <b>—</b></span>
+              </div>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /accordion -->
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Incoming UT Austin Freshman — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.accordion-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+  // Reveal
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

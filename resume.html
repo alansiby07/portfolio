@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.resume-body { padding: 3rem 4rem 5rem; }
+.resume-grid { display: grid; grid-template-columns: 1fr 320px; gap: 5rem; align-items: start; }
+.resume-section { margin-bottom: 3rem; }
+.resume-section-title {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.resume-section-title::after { content:''; flex:1; height:1px; background:var(--rule); }
+.resume-entry { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--rule); }
+.resume-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.resume-entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem; }
+.resume-entry-title { font-family: var(--serif); font-size: 1.1rem; letter-spacing: -0.01em; }
+.resume-entry-date { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.resume-entry-sub { font-size: 0.82rem; font-weight: 500; color: var(--accent); margin-bottom: 0.6rem; }
+.resume-entry-body { font-size: 0.88rem; font-weight: 300; color: var(--ink-soft); line-height: 1.75; }
+.resume-entry-bullets { list-style: none; margin-top: 0.5rem; }
+.resume-entry-bullets li {
+  font-size: 0.88rem; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.75; padding: 0.2rem 0 0.2rem 1.2rem; position: relative;
+}
+.resume-entry-bullets li::before { content:'—'; position:absolute; left:0; color:var(--accent); font-size:0.75rem; top:0.35rem; }
+
+/* Sidebar */
+.resume-sidebar {}
+.sidebar-block { margin-bottom: 2.5rem; }
+.sidebar-label {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.sidebar-label::after { content:''; flex:1; height:1px; background:var(--accent-light); }
+.skill-row { display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--rule); }
+.skill-row:last-child { border-bottom: none; }
+.skill-row span { font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); }
+.skill-bar-wrap { width: 55px; height: 3px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+.skill-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; transform-origin: left; transform: scaleX(0); }
+@keyframes grow { to { transform: scaleX(1); } }
+.coursework-list { list-style: none; }
+.coursework-list li {
+  font-size: 0.82rem; font-weight: 300; color: var(--ink-soft);
+  padding: 0.3rem 0; border-bottom: 1px solid var(--rule);
+}
+.coursework-list li:last-child { border-bottom: none; }
+.download-btn { margin-top: 1.25rem; }
+
+@media (max-width: 900px) {
+  .resume-body { padding: 2rem 1.5rem 4rem; }
+  .resume-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html" class="active">Resume</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <div class="page-hero reveal">
+    <div class="page-eyebrow">Qualifications</div>
+    <h1 class="page-title">Resume</h1>
+    <p class="page-sub">Incoming UT Austin freshman — Aerospace/Mechanical Engineering. Published spacecraft controls researcher and NASA Aerospace Scholar.</p>
+    <div style="margin-top:1.5rem;">
+      <a href="resume.pdf" class="btn-primary" download>Download PDF ↓</a>
+    </div>
+  </div>
+
+  <div class="resume-body">
+    <div class="resume-grid">
+
+      <!-- MAIN COLUMN -->
+      <div>
+        <!-- Education -->
+        <div class="resume-section reveal">
+          <div class="resume-section-title">Education</div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Round Rock High School</span>
+              <span class="resume-entry-date">Aug 2022 — May 2026</span>
+            </div>
+            <div class="resume-entry-sub">5.66 Weighted GPA — Round Rock, TX</div>
+            <div class="resume-entry-body">Coursework: Calculus, Physics, and other AP/Advanced courses.</div>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Austin Community College</span>
+              <span class="resume-entry-date">Jun 2023 — May 2026</span>
+            </div>
+            <div class="resume-entry-sub">Dual Enrollment — 4.0 GPA — Austin, TX</div>
+            <div class="resume-entry-body">Coursework: U.S. History, Macroeconomics, Government.</div>
+          </div>
+        </div>
+
+        <!-- Research Experience -->
+        <div class="resume-section reveal reveal-delay-1">
+          <div class="resume-section-title">Research Experience</div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Research Intern</span>
+              <span class="resume-entry-date">Jun — Jul 2025</span>
+            </div>
+            <div class="resume-entry-sub">Institute for Computing in Research</div>
+            <ul class="resume-entry-bullets">
+              <li>Designed and implemented a Python-based simulation of a 1-axis spacecraft attitude control system, modeling reaction wheel dynamics, actuator saturation, and PD control.</li>
+              <li>Built a grid-search optimization routine to tune controller gains against settling time, overshoot, and control torque.</li>
+              <li>Diagnosed and corrected flawed performance-metric logic by systematically verifying simulation output against expected physical behavior, rather than trusting results that appeared numerically clean.</li>
+              <li>Co-authored findings and published on engrXiv, contributing to open-source aerospace controls research.</li>
+              <li>Collaborated with mentors and peers to refine algorithms and present results in professional technical format.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="resume-section reveal reveal-delay-2">
+          <div class="resume-section-title">Selected Projects</div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">1-Axis Spacecraft Attitude Control: PD Design with Reaction Wheel Saturation</span>
+              <span class="resume-entry-date">engrXiv, 2025</span>
+            </div>
+            <ul class="resume-entry-bullets">
+              <li>Built a fourth-order Runge-Kutta simulation framework in NumPy/Matplotlib to model closed-loop spacecraft dynamics under real actuator constraints.</li>
+              <li>Verified controller performance using root locus and time-domain analysis across six spacecraft configurations.</li>
+              <li>Identified and resolved a critical flaw in settling-time detection logic that produced false-positive stability results.</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Magic Snap: Ergonomic & Magnetic-Charging Shell for the Apple Magic Mouse</span>
+              <span class="resume-entry-date">Team Flow State, 2026</span>
+            </div>
+            <ul class="resume-entry-bullets">
+              <li>Co-designed and CAD-modeled a 3D-printed ergonomic shell addressing RSI risk and a magnetic charging dock resolving the device's original bottom-mounted charging flaw.</li>
+              <li>Directed user research and a weighted decision matrix across three competing team concepts to guide design direction.</li>
+              <li>Iterated through multiple prototypes, refining palm-arch fit, mouse glide, and charging-cable management based on user testing and interviews.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience & Activities -->
+        <div class="resume-section reveal reveal-delay-3">
+          <div class="resume-section-title">Experience & Activities</div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Store Associate</span>
+              <span class="resume-entry-date">Mar 2026 — Present</span>
+            </div>
+            <div class="resume-entry-sub">The Home Depot</div>
+            <ul class="resume-entry-bullets">
+              <li>Help customers find plumbing products and answer questions about pipes, fittings, and fixtures.</li>
+              <li>Maintain a clean, organized, and safe work area while supporting team operations and customer service.</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">Founder & Basketball Trainer</span>
+              <span class="resume-entry-date">Sep 2024 — May 2026</span>
+            </div>
+            <div class="resume-entry-sub">Apex Basketball Training</div>
+            <ul class="resume-entry-bullets">
+              <li>Founded and independently operate a youth basketball training business coaching 50+ athletes.</li>
+              <li>Manage scheduling, client communication, and marketing.</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">NASA High School Aerospace Scholar</span>
+              <span class="resume-entry-date">Oct 2024 — Jun 2025</span>
+            </div>
+            <ul class="resume-entry-bullets">
+              <li>Selected for NASA's competitive national Aerospace Scholars program.</li>
+              <li>Collaborated on a team designing satellite enhancements for lunar exploration.</li>
+            </ul>
+          </div>
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <span class="resume-entry-title">DECA Competitor</span>
+              <span class="resume-entry-date">Aug 2022 — May 2026</span>
+            </div>
+            <div class="resume-entry-sub">Round Rock High School</div>
+            <ul class="resume-entry-bullets">
+              <li>Competed in business, marketing, and entrepreneurship events for four years.</li>
+              <li>Advanced to state competition.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="resume-sidebar">
+
+        <div class="sidebar-block reveal">
+          <div class="sidebar-label">Programming</div>
+          <div class="skill-row"><span>Python</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.85"></div></div></div>
+          <div class="skill-row"><span>Java</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.65"></div></div></div>
+        </div>
+
+        <div class="sidebar-block reveal reveal-delay-1">
+          <div class="sidebar-label">Tools</div>
+          <div class="skill-row"><span>Autodesk Inventor</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.82"></div></div></div>
+          <div class="skill-row"><span>LaTeX</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.75"></div></div></div>
+          <div class="skill-row"><span>NumPy / Matplotlib</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.80"></div></div></div>
+        </div>
+
+        <div class="sidebar-block reveal reveal-delay-2">
+          <div class="sidebar-label">Research</div>
+          <div class="skill-row"><span>Technical Writing</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.80"></div></div></div>
+          <div class="skill-row"><span>Data Analysis</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.78"></div></div></div>
+          <div class="skill-row"><span>Control Systems Modeling</span><div class="skill-bar-wrap"><div class="skill-bar-fill" data-w="0.75"></div></div></div>
+        </div>
+
+        <div class="sidebar-block reveal reveal-delay-3">
+          <div class="sidebar-label">Awards</div>
+          <ul class="coursework-list">
+            <li>National Merit Commended (2025)</li>
+            <li>AP Scholar with Distinction (2025)</li>
+            <li>National Honor Society (2025)</li>
+            <li>AP Scholar (2024)</li>
+            <li>DECA SCDC State Qualifier (2025)</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-block reveal">
+          <div class="sidebar-label">Download</div>
+          <a href="resume.pdf" class="btn-outline download-btn" download>Resume PDF ↓</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Incoming UT Austin Freshman — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  const barObs = new IntersectionObserver(e => {
+    e.forEach(x => {
+      if (x.isIntersecting) {
+        x.target.style.animation = 'grow 1.1s cubic-bezier(0.4,0,0.2,1) forwards';
+        x.target.style.transformOrigin = 'left';
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.skill-bar-fill').forEach(b => barObs.observe(b));
+</script>
+</body>
+</html>

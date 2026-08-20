@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-body {
+  padding: 4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+  align-items: start; border-bottom: 1px solid var(--rule);
+}
+.contact-intro {
+  font-size: 1.05rem; font-weight: 300; color: var(--ink-soft); line-height: 1.9;
+}
+.contact-intro p + p { margin-top: 1.25rem; }
+.contact-intro strong { color: var(--ink); font-weight: 500; }
+.contact-links { display: flex; flex-direction: column; }
+.contact-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.35rem 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none; transition: padding-left 0.2s;
+}
+.contact-link:first-child { border-top: 1px solid var(--rule); }
+.contact-link:hover { padding-left: 0.6rem; }
+.contact-link-left { display: flex; flex-direction: column; gap: 0.2rem; }
+.contact-link-platform {
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.contact-link-value { font-size: 0.95rem; font-weight: 400; color: var(--ink); }
+.contact-link-arrow { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .contact-body { grid-template-columns: 1fr; padding: 2.5rem 1.5rem; gap: 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <div class="page-hero reveal">
+    <div class="page-eyebrow">Say Hello</div>
+    <h1 class="page-title">Get in <em>Touch</em></h1>
+    <p class="page-sub">Incoming UT Austin freshman — open to research opportunities and conversations about aerospace and mechanical engineering.</p>
+  </div>
+
+  <div class="contact-body">
+    <div class="contact-intro reveal">
+      <p>I'm heading into my freshman year at <strong>UT Austin</strong> this fall, aiming to study Aerospace or Mechanical Engineering. I'm always interested in <strong>research opportunities, internships, and conversations</strong> about spacecraft controls, CAD design, or anything engineering-related.</p>
+      <p>If you're working on something interesting or just want to connect, feel free to reach out through any of the channels to the right.</p>
+      <p>Based in <strong>Austin, TX</strong>.</p>
+    </div>
+    <div class="contact-links reveal reveal-delay-1">
+      <a href="mailto:alanjsiby07@gmail.com" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">Email</span>
+          <span class="contact-link-value">alanjsiby07@gmail.com</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://linkedin.com/in/alan-siby-me" target="_blank" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">LinkedIn</span>
+          <span class="contact-link-value">linkedin.com/in/alan-siby-me</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://github.com/alansiby" target="_blank" class="contact-link">
+        <div class="contact-link-left">
+          <span class="contact-link-platform">GitHub</span>
+          <span class="contact-link-value">github.com/alansiby</span>
+        </div>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="resume.pdf" class="contact-link" download>
+        <div class="contact-link-left">
+          <span class="contact-link-platform">Résumé</span>
+          <span class="contact-link-value">Download PDF</span>
+        </div>
+        <span class="contact-link-arrow">↓</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Incoming UT Austin Freshman — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

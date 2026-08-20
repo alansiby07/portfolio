@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAM Mechanism — Alien UFO Toy — Alan Siby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  .chair-hero-img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain !important;
+    background: #f4f2ee;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 1.75rem;
+  }
+  .photo-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    background: #f4f2ee;
+    border-radius: 6px;
+    aspect-ratio: 4 / 3;
+  }
+  .photo-gallery.two-up { grid-template-columns: repeat(2, 1fr); }
+  .photo-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: -1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .video-wrapper {
+    width: 100%;
+    margin: 1.5rem 0 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+  }
+  .video-wrapper video {
+    width: 100%;
+    display: block;
+    max-height: 560px;
+  }
+
+  @media (max-width: 640px) {
+    .photo-gallery { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="nav-logo">Alan Siby</a>
+  <ul class="nav-links">
+    <li><a href="../../../projects.html">Projects</a></li>
+    <li><a href="../../../resume.html">Resume</a></li>
+    <li><a href="../../../about.html">About</a></li>
+    <li><a href="../../../contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-detail-hero">
+  <a href="../../../projects.html" class="back-link">← Back to Projects</a>
+  <div class="detail-eyebrow">Manufacturing / CAD-CAM</div>
+  <h1 class="detail-title">Cam-Driven Mechanism — Alien UFO Toy</h1>
+  <p class="detail-summary">Designed a cam-and-follower mechanism in SolidWorks, then manufactured and assembled a working wooden toy where a rotating cam drives a pop-up "Alien UFO" figure.</p>
+</div>
+
+<div class="detail-meta-bar">
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Category</span>
+    <span class="detail-meta-value">CAD/CAM Design</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Year</span>
+    <span class="detail-meta-value">2023</span>
+  </div>
+  <div class="detail-meta-item">
+    <span class="detail-meta-label">Tools</span>
+    <span class="detail-meta-value">SolidWorks, Wood, Hand Tools</span>
+  </div>
+</div>
+
+<div class="detail-body">
+
+  <div class="video-wrapper">
+    <video controls preload="metadata" poster="media/video-poster.jpg">
+      <source src="media/cam-mechanism-demo.mp4" type="video/mp4">
+      Your browser doesn't support embedded video. <a href="media/cam-mechanism-demo.mp4">Download the video</a> instead.
+    </video>
+  </div>
+  <p class="photo-caption">The finished mechanism in action — a rotating cam drives the follower to pop the alien figure up out of the UFO.</p>
+
+  <h3>Overview</h3>
+  <p>Cams are one of the simplest ways to turn continuous rotation into a repeating linear motion, and they show up everywhere from car engines to automated toys. For this project, I designed a cam-and-follower mechanism in SolidWorks, then built a working physical model: a small wooden box housing a rotating cam that drives a follower rod up and down, animating an "Alien UFO" figure on top.</p>
+
+  <h3>Concept Sketches</h3>
+  <p>Before modeling anything, I sketched a few different toy concepts built around different cam profiles — including a heart-cam alien, a snail-cam plane, and an eccentric-cam basketball — and worked out rough dimensions for the housing and followers before settling on a final design.</p>
+  <div class="photo-gallery">
+    <img src="media/concept-sketch-1.jpg" alt="Hand sketches of Alien UFO, Plane, and Basketball cam toy concepts">
+    <img src="media/concept-sketch-2.jpg" alt="Sketch of follower and cam dimensions for the final design">
+  </div>
+
+  <h3>SolidWorks Assembly</h3>
+  <p>I modeled the full assembly in SolidWorks — a box formed from side, front/back, top, and bottom panels, housing a rotating axle with a hex cam and eccentric cam, a follower, and a hand crank — then produced a full set of dimensioned drawings for manufacturing.</p>
+  <img src="media/drawing-exploded-assembly.jpg" alt="Exploded view assembly drawing with parts list" class="chair-hero-img">
+
+  <h3>Part Drawings</h3>
+  <p>Each part was drawn and dimensioned individually, from the box panels to the cam profiles and the axle, follower, and crank.</p>
+  <div class="photo-gallery">
+    <img src="media/drawing-side.jpg" alt="Dimensioned drawing of the side panel">
+    <img src="media/drawing-front-back.jpg" alt="Dimensioned drawing of the front and back panels">
+    <img src="media/drawing-top.jpg" alt="Dimensioned drawing of the top panel">
+    <img src="media/drawing-bottom.jpg" alt="Dimensioned drawing of the bottom panel">
+    <img src="media/drawing-hex-eccentric-cam.jpg" alt="Dimensioned drawing of the hex cam and eccentric cam">
+    <img src="media/drawing-axel-follower-crank.jpg" alt="Dimensioned drawing of the axel, follower, and crank">
+  </div>
+
+  <h3>What I Learned</h3>
+  <p>This project was my first time taking a mechanism all the way from a rough sketch to a fully dimensioned SolidWorks assembly to a physical, working build. Figuring out how a cam's profile translates directly into the follower's motion — and seeing that relationship play out in the finished toy — made the underlying math and geometry click in a way that just modeling it on screen hadn't.</p>
+
+</div>
+
+<div class="detail-nav">
+  <span></span>
+  <a href="../../../projects.html">All Projects</a>
+  <span></span>
+</div>
+
+<footer>
+  <span class="footer-text">Alan Siby — Aspiring Aerospace/Mechanical Engineer — Austin, TX</span>
+  <span class="footer-copy">Portfolio, 2025</span>
+</footer>
+
+</body>
+</html>

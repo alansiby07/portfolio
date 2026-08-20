@@ -1,47 +1,43 @@
-# My Engineering Portfolio
+# Alan Siby — Mechanical Engineering Portfolio
 
-A clean, minimal personal e-portfolio for a mechanical engineering student. Built with plain HTML, CSS, and vanilla JavaScript — no frameworks, no dependencies, no build step.
+🔗 **Live site:** [alansiby.github.io/portfolio](https://alansiby.github.io/portfolio)
 
-## 🚀 Live Site
+---
 
-Deploy instantly with **GitHub Pages**:
-1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Under *Source*, select `main` branch and `/ (root)`
-4. Click **Save** — your site will be live at `https://yourusername.github.io/repo-name`
+A personal e-portfolio documenting my engineering journey as a 3rd-year Mechanical Engineering student. The site covers academic coursework, high school engineering projects, and personal builds — everything from FEA simulations and heat exchanger design to CAD product redesign, welding, and hands-on fabrication.
 
-## 📁 Structure
+Built with plain HTML, CSS, and JavaScript. No frameworks, no dependencies.
 
-```
-portfolio/
-├── index.html   # The entire site (HTML + CSS + JS in one file)
-└── README.md
-```
+---
 
-## ✏️ Customizing
+## Projects
 
-Everything to change is in `index.html`. Search for the following placeholders:
+**Academic**
+- Compact Heat Exchanger Design
+- Lightweight Drone Frame (Topology Optimization)
+- Robotic Gripper Assembly
+- Ergonomic Tool Handle Redesign
 
-| Placeholder | Where to find it |
-|---|---|
-| `Alex Chen` | `<title>`, nav logo, footer |
-| `alex.chen@email.com` | Contact section |
-| `linkedin.com/in/alexchen-me` | Contact section |
-| `github.com/alexchen-eng` | Contact section |
-| `3rd`, `3.7` GPA, year | About stats |
-| Project titles & descriptions | Projects section |
-| `Austin, TX` | About & contact |
-| `Summer 2025` | Contact intro |
+**High School**
+- Magic Snap — Ergonomic Mouse Redesign
+- Puzzle Cube
+- Human Centered Design — Cardboard Chair
+- Castle Project
+- Trammel Toy
 
-To add your **resume PDF**: drop `resume.pdf` into the repo root and update the résumé link in the contact section:
-```html
-<a href="resume.pdf" class="contact-link">
-```
+**Personal**
+- Custom Machined Mechanical Keyboard
+- Parametric Bike Mount System
+- Vintage Lathe Rebuild
 
-## 🛠 Tech
+---
 
-- Pure HTML5 / CSS3 / vanilla JS
-- [DM Serif Display](https://fonts.google.com/specimen/DM+Serif+Display) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
-- Scroll-triggered reveal animations via `IntersectionObserver`
-- Fully responsive down to mobile
-- No frameworks, no npm, no build step needed
+## Contact
+
+- 📧 [your@email.com](mailto:your@email.com)
+- 💼 [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+- 🐙 [github.com/yourusername](https://github.com/yourusername)
+
+---
+
+*Alan Siby — Mechanical Engineering Student, Austin TX*
