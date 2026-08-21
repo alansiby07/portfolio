@@ -16,7 +16,7 @@
   }
   .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
     margin: 1rem 0 1.75rem;
   }
@@ -42,6 +42,85 @@
     display: block;
     border: 1px solid rgba(0,0,0,0.12);
   }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f4f2ee;
+    margin: 1rem 0 0.5rem;
+  }
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s ease;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+  .carousel-prev { left: 0.75rem; }
+  .carousel-next { right: 0.75rem; }
+  .carousel-counter {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    z-index: 2;
+  }
+  .carousel-dots {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.4rem;
+    z-index: 2;
+  }
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    padding: 0;
+  }
+  .carousel-dot.active { background: #fff; }
 
   @media (max-width: 640px) {
     .photo-gallery, .photo-gallery.two-up { grid-template-columns: 1fr; }
@@ -74,7 +153,7 @@
   </div>
   <div class="detail-meta-item">
     <span class="detail-meta-label">Year</span>
-    <span class="detail-meta-value">2023</span>
+    <span class="detail-meta-value">2022</span>
   </div>
   <div class="detail-meta-item">
     <span class="detail-meta-label">Tools</span>
@@ -92,25 +171,37 @@
 
   <h3>Concept Sketches</h3>
   <p>Before modeling anything in Inventor, I sketched each of the six puzzle pieces by hand on isometric grid paper — working out how the individual cube units would stack and interlock to eventually form a complete cube.</p>
-  <div class="photo-gallery">
-    <img src="media/sketch-black.jpg" alt="Hand sketch of the black puzzle piece on isometric grid paper">
-    <img src="media/sketch-red.jpg" alt="Hand sketch of the red puzzle piece on isometric grid paper">
-    <img src="media/sketch-yellow.jpg" alt="Hand sketch of the yellow puzzle piece on isometric grid paper">
-    <img src="media/sketch-darkgreen.jpg" alt="Hand sketch of the dark green puzzle piece on isometric grid paper">
-    <img src="media/sketch-lightgreen.jpg" alt="Hand sketch of the light green puzzle piece on isometric grid paper">
-    <img src="media/sketch-pink.jpg" alt="Hand sketch of the pink puzzle piece on isometric grid paper">
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/sketch-black.jpg" alt="Hand sketch of the black puzzle piece on isometric grid paper"></div>
+      <div class="carousel-slide"><img src="media/sketch-red.jpg" alt="Hand sketch of the red puzzle piece on isometric grid paper"></div>
+      <div class="carousel-slide"><img src="media/sketch-yellow.jpg" alt="Hand sketch of the yellow puzzle piece on isometric grid paper"></div>
+      <div class="carousel-slide"><img src="media/sketch-darkgreen.jpg" alt="Hand sketch of the dark green puzzle piece on isometric grid paper"></div>
+      <div class="carousel-slide"><img src="media/sketch-lightgreen.jpg" alt="Hand sketch of the light green puzzle piece on isometric grid paper"></div>
+      <div class="carousel-slide"><img src="media/sketch-pink.jpg" alt="Hand sketch of the pink puzzle piece on isometric grid paper"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
   <p class="photo-caption">Hand sketches for each of the six puzzle pieces, drawn on isometric grid paper before modeling in Inventor</p>
 
   <h3>Design Process</h3>
   <p>While designing the parts in Inventor, I learned how to sketch, extrude, and create detailed models of each puzzle piece. Once the individual pieces were modeled, I assembled every part into a complete puzzle cube using constraints like mate and flush.</p>
-  <div class="photo-gallery">
-    <img src="media/cad-black-piece.jpg" alt="Inventor 3D model of the black puzzle piece">
-    <img src="media/cad-red-piece.jpg" alt="Inventor 3D model of the red puzzle piece">
-    <img src="media/cad-yellow-piece.jpg" alt="Inventor 3D model of the yellow puzzle piece">
-    <img src="media/cad-darkgreen-piece.jpg" alt="Inventor 3D model of the dark green puzzle piece">
-    <img src="media/cad-lightgreen-piece.jpg" alt="Inventor 3D model of the light green puzzle piece">
-    <img src="media/cad-pink-piece.jpg" alt="Inventor 3D model of the pink puzzle piece">
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/cad-black-piece.jpg" alt="Inventor 3D model of the black puzzle piece"></div>
+      <div class="carousel-slide"><img src="media/cad-red-piece.jpg" alt="Inventor 3D model of the red puzzle piece"></div>
+      <div class="carousel-slide"><img src="media/cad-yellow-piece.jpg" alt="Inventor 3D model of the yellow puzzle piece"></div>
+      <div class="carousel-slide"><img src="media/cad-darkgreen-piece.jpg" alt="Inventor 3D model of the dark green puzzle piece"></div>
+      <div class="carousel-slide"><img src="media/cad-lightgreen-piece.jpg" alt="Inventor 3D model of the light green puzzle piece"></div>
+      <div class="carousel-slide"><img src="media/cad-pink-piece.jpg" alt="Inventor 3D model of the pink puzzle piece"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
   <p class="photo-caption">Each of the six pieces modeled individually in Inventor: Black, Red, Yellow, Dark Green, Light Green, and Pink</p>
 
@@ -130,15 +221,21 @@
 
   <h3>Documentation</h3>
   <p>I also learned how to create formal drawing files and format them to meet the project's documentation criteria — a full drawing sheet for each piece, plus a combined sheet for the whole assembly.</p>
-  <div class="photo-gallery">
-    <img src="media/drawing-black-piece.jpg" alt="Inventor drawing sheet for the black piece">
-    <img src="media/drawing-red-piece.jpg" alt="Inventor drawing sheet for the red piece">
-    <img src="media/drawing-yellow-piece.jpg" alt="Inventor drawing sheet for the yellow piece">
-    <img src="media/drawing-darkgreen-piece.jpg" alt="Inventor drawing sheet for the dark green piece">
-    <img src="media/drawing-lightgreen-piece.jpg" alt="Inventor drawing sheet for the light green piece">
-    <img src="media/drawing-pink-piece.jpg" alt="Inventor drawing sheet for the pink piece">
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/drawing-black-piece.jpg" alt="Inventor drawing sheet for the black piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-red-piece.jpg" alt="Inventor drawing sheet for the red piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-yellow-piece.jpg" alt="Inventor drawing sheet for the yellow piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-darkgreen-piece.jpg" alt="Inventor drawing sheet for the dark green piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-lightgreen-piece.jpg" alt="Inventor drawing sheet for the light green piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-pink-piece.jpg" alt="Inventor drawing sheet for the pink piece"></div>
+      <div class="carousel-slide"><img src="media/drawing-whole-cube-assembly.jpg" alt="Inventor drawing sheet for the complete cube assembly"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <img src="media/drawing-whole-cube-assembly.jpg" alt="Inventor drawing sheet for the complete cube assembly" class="puzzle-hero-img">
   <p class="photo-caption">Formal Inventor drawing sheets — one per piece, plus the complete assembly</p>
 
   <h3>Pieces</h3>
@@ -156,6 +253,40 @@
   <span class="footer-text">Alan Siby — Aspiring Aerospace/Mechanical Engineer — Austin, TX</span>
   <span class="footer-copy">Portfolio, 2025</span>
 </footer>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var prevBtn = carousel.querySelector('.carousel-prev');
+    var nextBtn = carousel.querySelector('.carousel-next');
+    var counter = carousel.querySelector('.carousel-counter');
+    var dotsWrap = carousel.querySelector('.carousel-dots');
+    var index = 0;
+
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function() { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = carousel.querySelectorAll('.carousel-dot');
+
+    function update() {
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+      if (counter) counter.textContent = (index + 1) + ' / ' + slides.length;
+    }
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      update();
+    }
+    prevBtn.addEventListener('click', function() { goTo(index - 1); });
+    nextBtn.addEventListener('click', function() { goTo(index + 1); });
+    update();
+  });
+</script>
 
 </body>
 </html>

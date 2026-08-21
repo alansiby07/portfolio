@@ -7,6 +7,113 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../style.css">
+<style>
+  .chair-hero-img {
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain !important;
+    background: #f4f2ee;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 1.75rem;
+  }
+  .photo-gallery.three-up { grid-template-columns: repeat(3, 1fr); }
+  .photo-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    background: #f4f2ee;
+    border-radius: 6px;
+    aspect-ratio: 4 / 3;
+  }
+  .photo-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: -1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin: 1.25rem 0 2rem;
+  }
+  .stat-box {
+    border: 1px solid rgba(0,0,0,0.12);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    color: var(--ink-soft, #4a4a45);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+  .constraints-list, .future-list {
+    margin: 0.5rem 0 1.75rem;
+    padding-left: 1.25rem;
+  }
+  .constraints-list li, .future-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+  .placeholder-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.6;
+    border: 1px dashed rgba(0,0,0,0.2);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    margin: 0.5rem 0 1.75rem;
+  }
+  .slides-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    margin: 1rem 0 0.5rem;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .slides-embed-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .slides-fallback-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .slides-fallback-link:hover { opacity: 0.7; }
+
+  @media (max-width: 640px) {
+    .photo-gallery, .photo-gallery.three-up { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: 1fr; }
+    .slides-embed-wrapper { padding-top: 75%; }
+  }
+</style>
 </head>
 <body>
 
@@ -43,21 +150,170 @@
 </div>
 
 <div class="detail-body">
-  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+
+  <img src="media/final-iridescent-top.jpg" alt="Final Magic Snap prototype fitted onto the Apple Magic Mouse, top view, iridescent color-shifting finish" class="chair-hero-img">
+  <p class="photo-caption">The final Magic Snap shell fitted to the Magic Mouse — team project with Ashmeet Bedi and Niketh Raghu ("Flow State").</p>
 
   <h3>Overview</h3>
   <p>Though the Apple Magic Mouse is sleek in appearance, it's inherently flawed due to three interrelated design issues. Its thinness forces the user into a constant "claw grip," which can cause forearm extensor strain. Its plastic skates create unnecessary friction against surfaces, making the mouse feel heavier than it should during use. And its rear-end charging port makes the mouse inoperable while charging and causes wear on the surface through progressive scratching.</p>
 
   <p><a href="https://docs.google.com/presentation/d/1fLpC__O6WlBFwXPnhTFWkVkvGzgddFhvOJq85SQXOFg/present" target="_blank" style="color:var(--accent); font-weight:500;">View full presentation slides →</a></p>
 
-      <h3>Design Goals</h3>
-      <p>This project aimed to solve all three problems through a complete redesign. The objective was a modular input device that allows for natural support from the palm arch, uses glass feet instead of plastic skates, and includes a docking station that charges the mouse vertically — removing downtime and surface damage altogether. All modifications were planned to maintain full functionality with the macOS multitouch system.</p>
-      <h3>What I Learned</h3>
-      <p>Designing a model for a physical object was a completely new challenge, since I had to build the design around something material rather than starting from scratch. The process of exporting the model and printing it made me much more aware of parameters like infill density and support structures.</p>
-      <h3>Reflection</h3>
-      <p>This project made me realize how vital it is not to limit myself to a single type of solution, but to stay prepared to explore different directions when creating something new.</p>
+  <h3>Design Constraints</h3>
+  <ul class="constraints-list">
+    <li>Added mass from the ergonomic shell and magnets must be offset by a reduced coefficient of friction.</li>
+    <li>Must be able to remove and reinsert the mouse with ease.</li>
+    <li>Must still be able to use multi-touch and gesture functionality.</li>
+    <li>Sensor's tracking accuracy must remain unhindered and precise.</li>
+    <li>Must be comfortable and ergonomically compliant for both short and long term usage.</li>
+    <li>Must account for 3D-print shrinkage and tolerances to ensure a secure design.</li>
+  </ul>
 
-  <div class="detail-placeholder"><span>Add photos or diagrams here</span></div>
+  <h3>Validating the Problem</h3>
+  <p>Before committing to a design direction, we surveyed potential users to confirm the problem was worth solving.</p>
+  <div class="stats-strip">
+    <div class="stat-box">
+      <div class="stat-value">87.5%</div>
+      <div class="stat-label">of respondents use Apple products</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">70.4%</div>
+      <div class="stat-label">say they are "deep" into the Apple ecosystem</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">81.4%</div>
+      <div class="stat-label">more likely to use the Magic Mouse if it were ergonomic with wireless charging</div>
+    </div>
+  </div>
+
+  <h3>Design Goals</h3>
+  <p>This project aimed to solve all three problems through a complete redesign. The objective was a modular input device that allows for natural support from the palm arch, uses glass feet instead of plastic skates, and includes a docking station that charges the mouse vertically — removing downtime and surface damage altogether. All modifications were planned to maintain full functionality with the macOS multitouch system.</p>
+
+  <h3>Concept Generation &amp; Decision Matrix</h3>
+  <p>Each team member independently designed a concept, and we scored all three against weighted criteria — weight, price, core function, minimalism, and comfort — to pick a direction as a team. Ashmeet's design scored highest overall and became the foundation for the shared design that followed.</p>
+  <div class="photo-gallery">
+    <img src="media/proto2-cad-hump-1.jpg" alt="CAD render of one team member's individual concept design, angled view, showing a boxy shell with two slot cutouts on top">
+    <img src="media/proto2-cad-hump-2.jpg" alt="CAD render of the same individual concept design, alternate angle">
+  </div>
+  <p class="photo-caption">One of the individual concepts submitted for the decision matrix vote — a boxier shell shape with cutouts, ultimately not the direction the team chose.</p>
+  <div class="placeholder-note">Decision matrix table to be added in a future update.</div>
+
+  <h3>CAD Design</h3>
+  <p>The ergonomic hump was modeled directly around the physical mouse to guarantee a precise fit.</p>
+  <div class="photo-gallery">
+    <img src="media/cad-render-full-1.jpg" alt="CAD render of the full Magic Snap assembly, angled view, showing the hump shell, base ring, and internal sensor cutout">
+    <img src="media/cad-render-full-2.jpg" alt="CAD render of the Magic Snap assembly, top-down angled view">
+  </div>
+  <p class="photo-caption">Full assembly CAD renders — the hump shell over the base ring that clips around the mouse.</p>
+  <p>Before printing, each shell was meshed to check for printability and to preview infill and support structure.</p>
+  <div class="photo-gallery">
+    <img src="media/mesh-base-bottom.jpg" alt="Print-preview mesh of the shell assembly, underside view showing internal support structure">
+    <img src="media/mesh-hump-infill.jpg" alt="Print-preview mesh of the hump shell with visible infill lattice pattern">
+    <img src="media/mesh-profile-overlay.jpg" alt="Side-profile sketch overlaying multiple hump curve iterations to compare shape options">
+    <img src="media/mesh-hump-isolated.jpg" alt="Print-preview mesh of an isolated hump shell, triangulated surface">
+  </div>
+  <p class="photo-caption">Print-preview meshes used to check printability and compare hump curve iterations before sending each version to the printer.</p>
+
+  <h3>First Prototype</h3>
+  <p>Our first print surfaced real fitment issues you can't catch in CAD alone: the top portion of the sides came out thin and weak, the internal supports under the rear hump occasionally obscured the mouse's click mechanism, and the rear hump itself was too aggressive for a full palm grip — better suited to a fingertip or claw grip. Fitment was close but not quite there; the shell could have been wider.</p>
+  <div class="photo-gallery">
+    <img src="media/prototype1-raw-iphone-scale.jpg" alt="Raw first-prototype 3D print fresh off the printer, photographed next to an iPhone for scale">
+    <img src="media/prototype1-fitted-top.jpg" alt="First prototype shell fitted to the mouse, top view">
+    <img src="media/prototype1-fitted-front.jpg" alt="First prototype shell fitted to the mouse, front angle view">
+    <img src="media/prototype1-fitted-underside.jpg" alt="First prototype shell fitted to the mouse, underside view showing the mouse's sensor through the base ring">
+  </div>
+  <p class="photo-caption">First prototype: raw print and initial fitment test on the actual mouse.</p>
+
+  <h3>Second Prototype</h3>
+  <p>The second round moved to a two-piece design: a separate base ring that clips around the mouse's body, and a hump shell that sits on top. This is also the version we shared publicly as an open-source model.</p>
+  <div class="photo-gallery three-up">
+    <img src="media/proto2-mesh-hump-plain.jpg" alt="Print-preview mesh of the second-prototype hump, plain untextured surface">
+    <img src="media/proto2-mesh-hump-side.jpg" alt="Print-preview mesh of the hump, side view, triangulated surface">
+    <img src="media/proto2-mesh-hump-angle.jpg" alt="Print-preview mesh of the hump, angled view">
+    <img src="media/proto2-mesh-ring-front.jpg" alt="Print-preview mesh of the base ring, front view">
+    <img src="media/proto2-mesh-ring-angle.jpg" alt="Print-preview mesh of the base ring, angled view">
+    <img src="media/proto2-mesh-combined.jpg" alt="Print-preview mesh of the hump and base ring together as an assembly">
+  </div>
+  <p class="photo-caption">Print-preview meshes for the second prototype's two-piece hump-and-ring design.</p>
+  <div class="photo-gallery">
+    <img src="media/proto2-ring-raw-print.jpg" alt="Raw second-prototype base ring print, top view">
+    <img src="media/proto2-ring-cream-print.jpg" alt="Second-prototype base ring print in a cream material, top view">
+    <img src="media/proto2-hump-only-angle.jpg" alt="Second-prototype hump shell alone, angled view, showing the hollow underside">
+    <img src="media/proto2-hump-only-top.jpg" alt="Second-prototype hump shell alone, top-down view">
+  </div>
+  <p class="photo-caption">Second prototype: base ring and hump printed as separate pieces. <a href="https://www.printables.com/model/1119493-ergonomic-apple-magic-mouse-case/files" target="_blank" style="color:var(--accent); font-weight:500;">View the open-source model on Printables →</a></p>
+  <div class="photo-gallery">
+    <img src="media/proto2-ring-fitted-on-mouse.jpg" alt="Base ring fitted around the actual Apple Magic Mouse, top view showing the Apple logo through the ring">
+    <img src="media/proto2-fitted-underside.jpg" alt="Underside of the mouse with the base ring fitted, showing the sensor and skates">
+    <img src="media/proto2-fitted-side-angle.jpg" alt="Hump and base ring fully assembled and fitted onto the mouse, side angle view">
+    <img src="media/proto2-parts-comparison.jpg" alt="A smaller test shell piece next to the fully assembled second-prototype shell, for comparison">
+  </div>
+  <p class="photo-caption">Fitment testing: the base ring on the mouse alone, then the full hump-and-ring assembly.</p>
+  <p>All interviews pointed to this version being noticeably more comfortable to use, and fitment was very good right off the print bed — only minor cleanup with an X-acto knife was needed. The one problem left unsolved was charging: Apple's Magic Mouse disables Bluetooth as soon as it detects a charge, so a real charging solution still needed to be designed.</p>
+
+  <h3>Third Prototype</h3>
+  <p>The third round, under the "Flow State" team name, focused on solving the charging problem. We tested a dedicated charging base printed separately from the mouse shell — but the print quality on these came out rougher than we'd hoped, and the base itself was too large, leaving the cable sitting too loose inside it. We also ran into a height problem: the charging connection needed extra clearance at the rear of the mouse, so we tested resting the hump on a raised riser block to check how much extra height would be needed.</p>
+  <div class="photo-gallery">
+    <img src="media/proto3-charging-base-raw-1.jpg" alt="Raw 3D printed charging base, cylindrical, upright, with a charging pin on top">
+    <img src="media/proto3-charging-base-raw-2.jpg" alt="Raw 3D printed charging base, dome-topped, with a charging pin and cable">
+    <img src="media/proto3-charging-base-enclosed.jpg" alt="Fully enclosed charging base print, boxy shape, with a cable exiting the side">
+    <img src="media/proto3-hump-on-riser.jpg" alt="Hump shell resting on a rectangular riser block to test extra height clearance needed for charging">
+  </div>
+  <p class="photo-caption">Third prototype: early charging-base prints — rougher finish and an oversized fit — plus a riser test for the height the charging connection needed at the rear.</p>
+  <p>We also tested taping and strapping the charging cable directly to the underside of the mouse as a rougher, interim way to manage the cable while the dedicated base was still being worked out.</p>
+  <div class="photo-gallery">
+    <img src="media/prototype-navy-side.jpg" alt="Hump shell color test in navy blue, side profile">
+    <img src="media/charging-cable-test-underside.jpg" alt="Underside of the mouse with the charging cable secured by straps as an early cable-management test">
+  </div>
+  <p class="photo-caption">A navy color test for the hump, and the interim cable-strapping test.</p>
+
+  <h3>Final Prototype</h3>
+  <p>The final shell kept the comfort of the refined hump and finalized the two-part magnetic design: a hump that snaps onto a base ring so it detaches for portability and leaves room for interchangeable hump shapes in the future. It also moved to an iridescent, color-shifting finish, paired with the mouse's original glossy white housing showing through the front and underside. Additional glass skates were added underneath to counter the added weight from the shell and magnets while keeping glide smooth.</p>
+  <div class="photo-gallery">
+    <img src="media/final-iridescent-top.jpg" alt="Final iridescent prototype fitted to the mouse, top view">
+    <img src="media/final-iridescent-fitted-cable.jpg" alt="Final iridescent prototype fitted to the mouse with the charging cable connected">
+    <img src="media/final-hump-detached.jpg" alt="Final prototype with the iridescent hump detached from the white base, showing the modular magnetic design">
+  </div>
+  <p class="photo-caption">The finished shell with its iridescent coating, and the magnetic hump-to-base connection that keeps it modular.</p>
+  <div class="placeholder-note">Charging dock CAD renders, finished dock photos, and demo video still to be added in a future update.</div>
+
+  <h3>Cost Breakdown</h3>
+  <p>Per unit, our prototype cost effectively nothing thanks to lab filament and repurposed magnets — but pricing out full-scale components gives a realistic per-unit cost:</p>
+  <div class="stats-strip">
+    <div class="stat-box">
+      <div class="stat-value">$8.40</div>
+      <div class="stat-label">estimated cost per prototype (PLA filament, magnets, charging cable)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">$19.99</div>
+      <div class="stat-label">estimated sell price</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">actual cost using lab filament and repurposed magnets</div>
+    </div>
+  </div>
+
+  <h3>Future Plans</h3>
+  <ul class="future-list">
+    <li><b>Custom hump shapes:</b> design differently shaped humps that magnetically snap onto the same base, letting users tailor the fit to their own hand.</li>
+    <li><b>Smarter charging base:</b> explore modular charging bases with added desk-tool functionality, like a built-in lamp, clock, or fan.</li>
+    <li><b>Custom charging hardware:</b> design our own wiring and connectors, including 3D-printed conductive paths, to cut manufacturing cost and improve reliability.</li>
+    <li><b>Use while charging:</b> override the mouse's default behavior of disabling Bluetooth while charging, so it stays usable on the dock.</li>
+  </ul>
+
+  <h3>What I Learned</h3>
+  <p>Designing a model for a physical object was a completely new challenge, since I had to build the design around something material rather than starting from scratch. The process of exporting the model and printing it made me much more aware of parameters like infill density and support structures.</p>
+
+  <h3>Reflection</h3>
+  <p>This project made me realize how vital it is not to limit myself to a single type of solution, but to stay prepared to explore different directions when creating something new.</p>
+
+  <h3>Presentation Slides</h3>
+  <div class="slides-embed-wrapper">
+    <iframe src="https://docs.google.com/presentation/d/1fLpC__O6WlBFwXPnhTFWkVkvGzgddFhvOJq85SQXOFg/embed?start=false&loop=false&delayms=3000" allowfullscreen="true"></iframe>
+  </div>
+  <a href="https://docs.google.com/presentation/d/1fLpC__O6WlBFwXPnhTFWkVkvGzgddFhvOJq85SQXOFg/edit?usp=sharing" target="_blank" class="slides-fallback-link">Open slides in Google Slides →</a>
+
 </div>
 
 <div class="detail-nav">
