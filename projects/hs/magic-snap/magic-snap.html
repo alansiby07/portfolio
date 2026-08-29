@@ -108,6 +108,86 @@
   }
   .slides-fallback-link:hover { opacity: 0.7; }
 
+  .carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f4f2ee;
+    margin: 1rem 0 0.5rem;
+  }
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s ease;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f4f2ee;
+    display: block;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+  .carousel-prev { left: 0.75rem; }
+  .carousel-next { right: 0.75rem; }
+  .carousel-counter {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    z-index: 2;
+  }
+  .carousel-dots {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.4rem;
+    z-index: 2;
+  }
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    padding: 0;
+  }
+  .carousel-dot.active { background: #fff; }
+
   @media (max-width: 640px) {
     .photo-gallery, .photo-gallery.three-up { grid-template-columns: 1fr; }
     .stats-strip { grid-template-columns: 1fr; }
@@ -141,7 +221,7 @@
   </div>
   <div class="detail-meta-item">
     <span class="detail-meta-label">Year</span>
-    <span class="detail-meta-value">2024</span>
+    <span class="detail-meta-value">2026</span>
   </div>
   <div class="detail-meta-item">
     <span class="detail-meta-label">Tools</span>
@@ -151,8 +231,8 @@
 
 <div class="detail-body">
 
-  <img src="media/final-iridescent-top.jpg" alt="Final Magic Snap prototype fitted onto the Apple Magic Mouse, top view, iridescent color-shifting finish" class="chair-hero-img">
-  <p class="photo-caption">The final Magic Snap shell fitted to the Magic Mouse — team project with Ashmeet Bedi and Niketh Raghu ("Flow State").</p>
+  <img src="media/final_proto_on_stand.jpg" alt="Final Magic Snap prototype, fully assembled hump and base, resting on the vertical charging stand" class="chair-hero-img">
+  <p class="photo-caption">The final Magic Snap shell docked on its charging stand, team project with Ashmeet Bedi and Niketh Raghu ("Flow State").</p>
 
   <h3>Overview</h3>
   <p>Though the Apple Magic Mouse is sleek in appearance, it's inherently flawed due to three interrelated design issues. Its thinness forces the user into a constant "claw grip," which can cause forearm extensor strain. Its plastic skates create unnecessary friction against surfaces, making the mouse feel heavier than it should during use. And its rear-end charging port makes the mouse inoperable while charging and causes wear on the surface through progressive scratching.</p>
@@ -187,98 +267,181 @@
   </div>
 
   <h3>Design Goals</h3>
-  <p>This project aimed to solve all three problems through a complete redesign. The objective was a modular input device that allows for natural support from the palm arch, uses glass feet instead of plastic skates, and includes a docking station that charges the mouse vertically — removing downtime and surface damage altogether. All modifications were planned to maintain full functionality with the macOS multitouch system.</p>
+  <p>This project aimed to solve all three problems through a complete redesign. The objective was a modular input device that allows for natural support from the palm arch, uses glass feet instead of plastic skates, and includes a docking station that charges the mouse vertically, removing downtime and surface damage altogether. All modifications were planned to maintain full functionality with the macOS multitouch system.</p>
 
   <h3>Concept Generation &amp; Decision Matrix</h3>
-  <p>Each team member independently designed a concept, and we scored all three against weighted criteria — weight, price, core function, minimalism, and comfort — to pick a direction as a team. Ashmeet's design scored highest overall and became the foundation for the shared design that followed.</p>
-  <div class="photo-gallery">
-    <img src="media/proto2-cad-hump-1.jpg" alt="CAD render of one team member's individual concept design, angled view, showing a boxy shell with two slot cutouts on top">
-    <img src="media/proto2-cad-hump-2.jpg" alt="CAD render of the same individual concept design, alternate angle">
+  <p>Each team member independently sketched a concept, and we scored all three against weighted criteria: weight, price, core function, minimalism, and comfort, to pick a direction as a team. Ashmeet's design scored highest overall and became the foundation for the shared design that followed.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/alan_sketch.jpg" alt="Alan's hand-drawn concept sketch, showing side and top profile shapes with notes on charging and gap identification"></div>
+      <div class="carousel-slide"><img src="media/ashmeet_sketch.jpg" alt="Ashmeet's hand-drawn concept sketch, showing a rounded rectangular shell with dimensions and side profile notes"></div>
+      <div class="carousel-slide"><img src="media/niketh_sketch.png" alt="Niketh's hand-drawn concept sketch, an oval hump shape with annotations"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">One of the individual concepts submitted for the decision matrix vote — a boxier shell shape with cutouts, ultimately not the direction the team chose.</p>
-  <div class="placeholder-note">Decision matrix table to be added in a future update.</div>
-
-  <h3>CAD Design</h3>
-  <p>The ergonomic hump was modeled directly around the physical mouse to guarantee a precise fit.</p>
-  <div class="photo-gallery">
-    <img src="media/cad-render-full-1.jpg" alt="CAD render of the full Magic Snap assembly, angled view, showing the hump shell, base ring, and internal sensor cutout">
-    <img src="media/cad-render-full-2.jpg" alt="CAD render of the Magic Snap assembly, top-down angled view">
-  </div>
-  <p class="photo-caption">Full assembly CAD renders — the hump shell over the base ring that clips around the mouse.</p>
-  <p>Before printing, each shell was meshed to check for printability and to preview infill and support structure.</p>
-  <div class="photo-gallery">
-    <img src="media/mesh-base-bottom.jpg" alt="Print-preview mesh of the shell assembly, underside view showing internal support structure">
-    <img src="media/mesh-hump-infill.jpg" alt="Print-preview mesh of the hump shell with visible infill lattice pattern">
-    <img src="media/mesh-profile-overlay.jpg" alt="Side-profile sketch overlaying multiple hump curve iterations to compare shape options">
-    <img src="media/mesh-hump-isolated.jpg" alt="Print-preview mesh of an isolated hump shell, triangulated surface">
-  </div>
-  <p class="photo-caption">Print-preview meshes used to check printability and compare hump curve iterations before sending each version to the printer.</p>
+  <p class="photo-caption">Each team member's individual concept sketch, submitted before the group decision matrix vote.</p>
+  <img src="media/desgn_matrix.png" alt="Team decision matrix scoring Alan's, Ashmeet's, and Niketh's designs against weighted criteria: weight, price, core function, minimalism, and comfort, with Ashmeet's design ranking first" class="chair-hero-img">
+  <p class="photo-caption">The weighted decision matrix used to choose a direction as a team. Ashmeet's design scored highest (42) and became the foundation for the shared design.</p>
 
   <h3>First Prototype</h3>
-  <p>Our first print surfaced real fitment issues you can't catch in CAD alone: the top portion of the sides came out thin and weak, the internal supports under the rear hump occasionally obscured the mouse's click mechanism, and the rear hump itself was too aggressive for a full palm grip — better suited to a fingertip or claw grip. Fitment was close but not quite there; the shell could have been wider.</p>
-  <div class="photo-gallery">
-    <img src="media/prototype1-raw-iphone-scale.jpg" alt="Raw first-prototype 3D print fresh off the printer, photographed next to an iPhone for scale">
-    <img src="media/prototype1-fitted-top.jpg" alt="First prototype shell fitted to the mouse, top view">
-    <img src="media/prototype1-fitted-front.jpg" alt="First prototype shell fitted to the mouse, front angle view">
-    <img src="media/prototype1-fitted-underside.jpg" alt="First prototype shell fitted to the mouse, underside view showing the mouse's sensor through the base ring">
+  <p>Our first print surfaced real fitment issues you can't catch in CAD alone: the top portion of the sides came out thin and weak, the internal supports under the rear hump occasionally obscured the mouse's click mechanism, and the rear hump itself was too aggressive for a full palm grip, being better suited to a fingertip or claw grip. Fitment was close but not quite there; the shell could have been wider.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/first_prototype_cad_view_1.jpg" alt="CAD cross-section render of the first prototype shell, color-coded surfaces showing internal wall structure over the mouse body"></div>
+      <div class="carousel-slide"><img src="media/first_prototype_cad_view_2.jpg" alt="CAD render of the first prototype hump shell, angled side view, orange hump section over the gray base ring"></div>
+      <div class="carousel-slide"><img src="media/first_proto_cad_view_3.jpg" alt="CAD render of the first prototype shell underside, angled view, showing internal support ribs and the sensor cutout"></div>
+      <div class="carousel-slide"><img src="media/first_proto_cad_view_4.jpg" alt="CAD render of the first prototype shell, top-down angled view, showing the hump shape and internal fill pattern"></div>
+      <div class="carousel-slide"><img src="media/first_proto_cad_view_5.jpg" alt="Side-profile CAD sketch of the first prototype hump curve, with profile overlay lines used to refine the shape"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">First prototype: raw print and initial fitment test on the actual mouse.</p>
+  <p class="photo-caption">CAD modeling for the first prototype: the rear hump and internal supports built directly around the mouse body.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/first_proto_print_top_view.jpg" alt="First prototype print fitted onto the mouse, top view, showing the shell covering the rear and sides with the white mouse housing visible at the front"></div>
+      <div class="carousel-slide"><img src="media/first_proto_print_top_view_2.jpg" alt="First prototype print fitted onto the mouse, alternate top-angle view, showing the ribbed print texture on the hump"></div>
+      <div class="carousel-slide"><img src="media/first_proto_print_underside_view.jpg" alt="First prototype print fitted onto the mouse, underside view, showing the Apple logo and sensor through the base cutout"></div>
+      <div class="carousel-slide"><img src="media/first_proto_print_underside_View_2.jpg" alt="First prototype print fitted onto the mouse, underside close-up, showing the charging port and bottom edge of the shell"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
+  </div>
+  <p class="photo-caption">First prototype: printed shell fitted onto the actual mouse for testing. The fitment issues above were identified here.</p>
 
   <h3>Second Prototype</h3>
   <p>The second round moved to a two-piece design: a separate base ring that clips around the mouse's body, and a hump shell that sits on top. This is also the version we shared publicly as an open-source model.</p>
-  <div class="photo-gallery three-up">
-    <img src="media/proto2-mesh-hump-plain.jpg" alt="Print-preview mesh of the second-prototype hump, plain untextured surface">
-    <img src="media/proto2-mesh-hump-side.jpg" alt="Print-preview mesh of the hump, side view, triangulated surface">
-    <img src="media/proto2-mesh-hump-angle.jpg" alt="Print-preview mesh of the hump, angled view">
-    <img src="media/proto2-mesh-ring-front.jpg" alt="Print-preview mesh of the base ring, front view">
-    <img src="media/proto2-mesh-ring-angle.jpg" alt="Print-preview mesh of the base ring, angled view">
-    <img src="media/proto2-mesh-combined.jpg" alt="Print-preview mesh of the hump and base ring together as an assembly">
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/second_proto_cad_bottom_view.png" alt="CAD render of the second prototype, bottom view, showing the solid hump geometry from underneath"></div>
+      <div class="carousel-slide"><img src="media/second_proto_cad_front_view.png" alt="Print-preview mesh of the second prototype hump, front view, triangulated surface"></div>
+      <div class="carousel-slide"><img src="media/second_proto_cad_iso_view.png" alt="Print-preview mesh of the second prototype hump and base ring assembly, isometric view showing hexagonal infill"></div>
+      <div class="carousel-slide"><img src="media/second_proto_cad_rear_view.png" alt="Print-preview mesh of the second prototype hump, rear view, symmetric dome shape"></div>
+      <div class="carousel-slide"><img src="media/second_proto_cad_view.jpg" alt="Smoothed CAD render of the second prototype hump shell, angled view"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">Print-preview meshes for the second prototype's two-piece hump-and-ring design.</p>
-  <div class="photo-gallery">
-    <img src="media/proto2-ring-raw-print.jpg" alt="Raw second-prototype base ring print, top view">
-    <img src="media/proto2-ring-cream-print.jpg" alt="Second-prototype base ring print in a cream material, top view">
-    <img src="media/proto2-hump-only-angle.jpg" alt="Second-prototype hump shell alone, angled view, showing the hollow underside">
-    <img src="media/proto2-hump-only-top.jpg" alt="Second-prototype hump shell alone, top-down view">
+  <p class="photo-caption">CAD models and print-preview meshes for the second prototype's two-piece hump-and-ring design.</p>
+  <div class="photo-gallery two-up">
+    <img src="media/second_proto_complete.png" alt="Second prototype printed shell in a dark textured finish, fitted over the mouse, side view showing the glossy white mouse front">
+    <img src="media/second_proto_complete_2.png" alt="Second prototype printed shell in a dark textured finish, top-down view showing the glossy white mouse front">
   </div>
-  <p class="photo-caption">Second prototype: base ring and hump printed as separate pieces. <a href="https://www.printables.com/model/1119493-ergonomic-apple-magic-mouse-case/files" target="_blank" style="color:var(--accent); font-weight:500;">View the open-source model on Printables →</a></p>
-  <div class="photo-gallery">
-    <img src="media/proto2-ring-fitted-on-mouse.jpg" alt="Base ring fitted around the actual Apple Magic Mouse, top view showing the Apple logo through the ring">
-    <img src="media/proto2-fitted-underside.jpg" alt="Underside of the mouse with the base ring fitted, showing the sensor and skates">
-    <img src="media/proto2-fitted-side-angle.jpg" alt="Hump and base ring fully assembled and fitted onto the mouse, side angle view">
-    <img src="media/proto2-parts-comparison.jpg" alt="A smaller test shell piece next to the fully assembled second-prototype shell, for comparison">
+  <p class="photo-caption">Second prototype: printed hump in a dark textured finish, with the mouse's original glossy white housing showing through the front. <a href="https://www.printables.com/model/1119493-ergonomic-apple-magic-mouse-case/files" target="_blank" style="color:var(--accent); font-weight:500;">View the open-source model on Printables →</a></p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/second_proto_chargin_cable_side_view.jpg" alt="Second prototype hump shell, side profile view"></div>
+      <div class="carousel-slide"><img src="media/second_proto_charging_cable_underside.jpg" alt="Underside of the mouse with the second prototype hump fitted, charging cable secured underneath with rubber bands as an early cable-management test"></div>
+      <div class="carousel-slide"><img src="media/second_proto_print_underside.png" alt="Underside of the mouse fitted with the second prototype hump and base ring, showing the Apple logo and charging port"></div>
+      <div class="carousel-slide"><img src="media/second_proto_print_cable_view_1.jpg" alt="Second prototype hump with an iridescent test finish, charging cable connected underneath, fitted on the base ring"></div>
+      <div class="carousel-slide"><img src="media/second_proto_print_view_1.jpg" alt="Second prototype hump with an iridescent test finish, detached from the base ring, showing the modular two-piece design"></div>
+      <div class="carousel-slide"><img src="media/second_proto_print_view_2.jpg" alt="Second prototype fully assembled with an iridescent test finish, fitted onto the mouse, top view on a desk mousepad"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">Fitment testing: the base ring on the mouse alone, then the full hump-and-ring assembly.</p>
-  <p>All interviews pointed to this version being noticeably more comfortable to use, and fitment was very good right off the print bed — only minor cleanup with an X-acto knife was needed. The one problem left unsolved was charging: Apple's Magic Mouse disables Bluetooth as soon as it detects a charge, so a real charging solution still needed to be designed.</p>
+  <p class="photo-caption">Fitment and finish testing on the mouse, including underside views, an iridescent color test, and early cable-management experiments.</p>
+  <p>All interviews pointed to this version being noticeably more comfortable to use, and fitment was very good right off the print bed; only minor cleanup with an X-acto knife was needed. The one problem left unsolved was charging: Apple's Magic Mouse disables Bluetooth as soon as it detects a charge, so a real charging solution still needed to be designed.</p>
 
   <h3>Third Prototype</h3>
-  <p>The third round, under the "Flow State" team name, focused on solving the charging problem. We tested a dedicated charging base printed separately from the mouse shell — but the print quality on these came out rougher than we'd hoped, and the base itself was too large, leaving the cable sitting too loose inside it. We also ran into a height problem: the charging connection needed extra clearance at the rear of the mouse, so we tested resting the hump on a raised riser block to check how much extra height would be needed.</p>
-  <div class="photo-gallery">
-    <img src="media/proto3-charging-base-raw-1.jpg" alt="Raw 3D printed charging base, cylindrical, upright, with a charging pin on top">
-    <img src="media/proto3-charging-base-raw-2.jpg" alt="Raw 3D printed charging base, dome-topped, with a charging pin and cable">
-    <img src="media/proto3-charging-base-enclosed.jpg" alt="Fully enclosed charging base print, boxy shape, with a cable exiting the side">
-    <img src="media/proto3-hump-on-riser.jpg" alt="Hump shell resting on a rectangular riser block to test extra height clearance needed for charging">
+  <p>The third round, under the "Flow State" team name, focused on solving the charging problem. The two-piece hump-and-ring design was carried over and refined, then paired with a dedicated charging base designed to dock the mouse vertically.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/third_proto_base_cad_view_1.jpg" alt="Print-preview mesh of the third prototype base ring, angled view"></div>
+      <div class="carousel-slide"><img src="media/third_proto_base_view_2.png" alt="Print-preview mesh of the third prototype base ring, alternate angled view"></div>
+      <div class="carousel-slide"><img src="media/third_proto_top_cad_view_1.jpg" alt="Print-preview mesh of the third prototype hump shell, close angled view"></div>
+      <div class="carousel-slide"><img src="media/third_proto_top_cad_view_2.jpg" alt="Print-preview mesh of the third prototype hump shell, alternate angled view"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">Third prototype: early charging-base prints — rougher finish and an oversized fit — plus a riser test for the height the charging connection needed at the rear.</p>
-  <p>We also tested taping and strapping the charging cable directly to the underside of the mouse as a rougher, interim way to manage the cable while the dedicated base was still being worked out.</p>
-  <div class="photo-gallery">
-    <img src="media/prototype-navy-side.jpg" alt="Hump shell color test in navy blue, side profile">
-    <img src="media/charging-cable-test-underside.jpg" alt="Underside of the mouse with the charging cable secured by straps as an early cable-management test">
+  <p class="photo-caption">Print-preview meshes for the third prototype's base ring and hump shell.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/third_proto_base_print.jpg" alt="Raw third prototype base ring print, top view on a wood table"></div>
+      <div class="carousel-slide"><img src="media/third_proto_print_top.jpg" alt="Raw third prototype hump shell print, alone, top view showing the swirled print texture"></div>
+      <div class="carousel-slide"><img src="media/third_proto_print_view_1.jpg" alt="Third prototype hump and base ring assembled together, angled view showing the open front cutout"></div>
+      <div class="carousel-slide"><img src="media/third_prototype_wihtout_top.jpg" alt="Third prototype base ring fitted onto the actual mouse without the hump attached, top view"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">A navy color test for the hump, and the interim cable-strapping test.</p>
+  <p class="photo-caption">Third prototype: base ring and hump printed and assembled together, plus the base ring fitted on the mouse alone before the hump snaps on top.</p>
+  <p>We also tested a dedicated charging base printed separately from the mouse shell, but the print quality on these came out rougher than we'd hoped, and the base itself was too large, leaving the cable sitting too loose inside it. We also ran into a height problem: the charging connection needed extra clearance at the rear of the mouse, so we tested resting the hump on a raised riser block to check how much extra height would be needed.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/third_proto_stand_cad_view_1.png" alt="CAD render of the third prototype charging stand, cylindrical with a domed top"></div>
+      <div class="carousel-slide"><img src="media/third_proto_stand_cad_view_2.png" alt="CAD render of the charging stand, alternate angle showing the charging pin detail"></div>
+      <div class="carousel-slide"><img src="media/third_proto_stand_view_1.jpg" alt="Raw printed charging stand, cylindrical, with a charging pin on top and cable exiting the side"></div>
+      <div class="carousel-slide"><img src="media/third_proto_stand_view_2.jpg" alt="Raw printed charging stand, alternate angle showing the textured print rings"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
+  </div>
+  <p class="photo-caption">Third prototype: charging base CAD design and early prints, with rougher finish and an oversized fit.</p>
 
   <h3>Final Prototype</h3>
-  <p>The final shell kept the comfort of the refined hump and finalized the two-part magnetic design: a hump that snaps onto a base ring so it detaches for portability and leaves room for interchangeable hump shapes in the future. It also moved to an iridescent, color-shifting finish, paired with the mouse's original glossy white housing showing through the front and underside. Additional glass skates were added underneath to counter the added weight from the shell and magnets while keeping glide smooth.</p>
-  <div class="photo-gallery">
-    <img src="media/final-iridescent-top.jpg" alt="Final iridescent prototype fitted to the mouse, top view">
-    <img src="media/final-iridescent-fitted-cable.jpg" alt="Final iridescent prototype fitted to the mouse with the charging cable connected">
-    <img src="media/final-hump-detached.jpg" alt="Final prototype with the iridescent hump detached from the white base, showing the modular magnetic design">
+  <p>The final shell kept the comfort of the refined hump and finalized the two-part magnetic design: a hump that snaps onto a base ring so it detaches for portability and leaves room for interchangeable hump shapes in the future. The hump's side wall was printed with a visible honeycomb texture, paired with the mouse's original glossy white housing showing through the front and underside. A dedicated vertical charging stand rounded out the system, letting the mouse dock and charge without being flipped over.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/final_proto_cad_top_view_1.jpg" alt="Print-preview mesh of the final prototype hump, smooth domed shape"></div>
+      <div class="carousel-slide"><img src="media/final_proto_cad_top_view_2.jpg" alt="Print-preview mesh of the final prototype hump, underside view showing internal structure and cutout"></div>
+      <div class="carousel-slide"><img src="media/final_proto_base_view_2.jpg" alt="Print-preview mesh of the final prototype base ring, oval shape with textured surface"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
   </div>
-  <p class="photo-caption">The finished shell with its iridescent coating, and the magnetic hump-to-base connection that keeps it modular.</p>
-  <div class="placeholder-note">Charging dock CAD renders, finished dock photos, and demo video still to be added in a future update.</div>
+  <p class="photo-caption">Print-preview meshes for the final hump and base ring.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/final_proto_top.png" alt="Final prototype hump shell alone, close-up view showing the textured surface finish"></div>
+      <div class="carousel-slide"><img src="media/final_proto_separated.jpg" alt="Final prototype hump detached from the base ring and mouse, side by side, showing the modular magnetic design"></div>
+      <div class="carousel-slide"><img src="media/final_proto_bottom.png" alt="Final prototype base ring fitted onto the mouse, top view with the Apple logo visible through the cutout"></div>
+      <div class="carousel-slide"><img src="media/final_proto_underside.jpg" alt="Underside of the final prototype fitted onto the mouse, showing the Apple logo, sensor, and mounting details"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
+  </div>
+  <p class="photo-caption">The finished hump and base ring, shown apart to highlight the modular magnetic connection, plus the underside fitted onto the mouse.</p>
+  <p>The dedicated charging stand let the mouse dock and charge vertically, keeping the surface finish scratch-free and removing the downtime of flipping the mouse over to plug it in.</p>
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="media/final_charging_stand_cad_view_1.jpg" alt="CAD render of the final charging stand, rounded rectangular shape with a top slot cutout"></div>
+      <div class="carousel-slide"><img src="media/final_charging_stand_cad_view_2.jpg" alt="CAD render of the charging stand, alternate angle showing the slot and mounting hole"></div>
+      <div class="carousel-slide"><img src="media/final_chargin_stand_view_2.jpg" alt="Printed final charging stand, top view showing the charging pin"></div>
+      <div class="carousel-slide"><img src="media/final_chargin_stand_view_3.png" alt="Printed final charging stand, angled view with the charging cable attached"></div>
+    </div>
+    <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+    <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+    <span class="carousel-counter"></span>
+    <div class="carousel-dots"></div>
+  </div>
+  <p class="photo-caption">CAD design and printed version of the final charging stand.</p>
+  <div class="placeholder-note">Demo video still to be added in a future update.</div>
 
   <h3>Cost Breakdown</h3>
-  <p>Per unit, our prototype cost effectively nothing thanks to lab filament and repurposed magnets — but pricing out full-scale components gives a realistic per-unit cost:</p>
+  <p>Per unit, our prototype cost effectively nothing thanks to lab filament and repurposed magnets, but pricing out full-scale components gives a realistic per-unit cost:</p>
   <div class="stats-strip">
     <div class="stat-box">
       <div class="stat-value">$8.40</div>
@@ -323,9 +486,43 @@
 </div>
 
 <footer>
-  <span class="footer-text">Alan Siby — Aspiring Aerospace/Mechanical Engineer — Austin, TX</span>
-  <span class="footer-copy">Portfolio, 2025</span>
+  <span class="footer-text">Alan Siby - UT Austin Freshman</span>
+  <span class="footer-copy">Portfolio 2026</span>
 </footer>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var prevBtn = carousel.querySelector('.carousel-prev');
+    var nextBtn = carousel.querySelector('.carousel-next');
+    var counter = carousel.querySelector('.carousel-counter');
+    var dotsWrap = carousel.querySelector('.carousel-dots');
+    var index = 0;
+
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function() { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = carousel.querySelectorAll('.carousel-dot');
+
+    function update() {
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+      if (counter) counter.textContent = (index + 1) + ' / ' + slides.length;
+    }
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      update();
+    }
+    prevBtn.addEventListener('click', function() { goTo(index - 1); });
+    nextBtn.addEventListener('click', function() { goTo(index + 1); });
+    update();
+  });
+</script>
 
 </body>
 </html>

@@ -16,6 +16,14 @@
 .about-text p + p { margin-top: 1.25rem; }
 .about-text strong { color: var(--ink); font-weight: 500; }
 .about-aside {}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+  display: block;
+}
 .aside-block { margin-bottom: 2.5rem; }
 .aside-label {
   font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em;
@@ -41,6 +49,7 @@
 @media (max-width: 900px) {
   .about-body { padding: 2.5rem 1.5rem; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-photo { max-width: 280px; margin-left: auto; margin-right: auto; }
 }
 </style>
 </head>
@@ -66,13 +75,15 @@
   <div class="about-body">
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>I'm an incoming freshman at <strong>UT Austin</strong>, planning to study Aerospace or Mechanical Engineering. I gravitate toward <strong>aerospace</strong> specifically — there's something about the ability to design machines as complex as a rocket that can take people to space that I find endlessly compelling, and I want to be part of pushing that industry forward.</p>
-        <p>This past summer, I worked as a research intern at the <strong>Institute for Computing in Research</strong>, where I built a Python simulation of a spacecraft attitude control system — modeling reaction wheel dynamics and a PD controller, then optimizing performance through a grid-search routine. I co-authored the findings and published them on engrXiv. I was also selected as a <strong>NASA High School Aerospace Scholar</strong>, where I worked on a team designing satellite enhancements for lunar exploration.</p>
-        <p>My interest in engineering started well before that, in Round Rock ISD's engineering pathway — coursework in CAD modeling, human-centered design, and product redesign, including a full ergonomic and magnetic-charging redesign of the Apple Magic Mouse.</p>
-        <p>I learn best by doing — whether that's debugging a simulation that's quietly producing wrong answers, machining a part from scratch, or rebuilding a vintage lathe in my garage. I care about <strong>craft, precision,</strong> and understanding the "why" behind every design decision.</p>
-        <p>Outside of engineering, I play basketball, run my own youth basketball training business, love video games like NBA2K and FIFA, and enjoy rock climbing whenever I get the chance.</p>
+        <p>I'm a freshman at <strong>UT Austin</strong>, studying <strong>Mechanical Engineering</strong>. I gravitate toward <strong>aerospace</strong> specifically, since there's something about the ability to design machines as complex as a rocket that can take people to space that I find endlessly compelling, and I want to be part of pushing that industry forward.</p>
+        <p>The summer before senior year, I worked as a research intern at the <strong>Institute for Computing in Research</strong>, spending the summer digging into spacecraft attitude control: building out reaction wheel dynamics, tuning a PD controller, and running a grid-search to optimize performance. It was my first real taste of what research actually looks like day to day, and I ended up co-authoring the findings on engrXiv. I've also gotten to see the field from a different angle as a <strong>NASA High School Aerospace Scholar</strong>, working on a team designing satellite enhancements for lunar exploration.</p>
+        <p>My interest in engineering started well before that, in Round Rock ISD's engineering pathway: coursework in CAD modeling, human-centered design, and product redesign, including a full ergonomic and magnetic-charging redesign of the Apple Magic Mouse.</p>
+        <p>I learn best by doing, whether that's debugging a simulation that's quietly producing wrong answers, machining a part from scratch, or rebuilding a vintage lathe in my garage. I care about <strong>craft, precision,</strong> and understanding the "why" behind every design decision.</p>
+        <p>Outside of engineering, I'm a big <strong>F1</strong> fan, root for the <strong>San Antonio Spurs</strong> and <strong>Manchester United</strong>, play basketball myself, and previously ran my own youth basketball training business; teaching is something I'm still passionate about. I also enjoy video games like NBA2K and FIFA, and rock climbing whenever I get the chance.</p>
       </div>
+
       <div class="about-aside reveal reveal-delay-1">
+        <img src="alan-headshot.jpg" alt="Portrait of Alan Siby" class="about-photo">
         <div class="stats-row">
           <div class="stat-box"><div class="num">5.66</div><div class="lbl">Weighted GPA</div></div>
           <div class="stat-box"><div class="num">4.0</div><div class="lbl">ACC GPA</div></div>
@@ -83,21 +94,22 @@
           <div class="aside-label">CAD & Design</div>
           <ul class="aside-list">
             <li>Autodesk Inventor</li>
+            <li>Fusion 360</li>
           </ul>
         </div>
         <div class="aside-block">
-          <div class="aside-label">Programming & Research</div>
+          <div class="aside-label">Programming</div>
           <ul class="aside-list">
             <li>Python</li>
             <li>Java</li>
-            <li>Data Analysis</li>
-            <li>Technical Writing</li>
           </ul>
         </div>
         <div class="aside-block">
-          <div class="aside-label">Tools</div>
+          <div class="aside-label">Tools & Skills</div>
           <ul class="aside-list">
             <li>NumPy / Matplotlib</li>
+            <li>Data Analysis</li>
+            <li>Technical Writing</li>
             <li>LaTeX</li>
             <li>Control Systems Modeling</li>
           </ul>
@@ -108,8 +120,8 @@
 </div>
 
 <footer>
-  <span class="footer-text">Alan Siby — Incoming UT Austin Freshman — Austin, TX</span>
-  <span class="footer-copy">Portfolio, 2025</span>
+  <span class="footer-text">Alan Siby - UT Austin Freshman</span>
+  <span class="footer-copy">Portfolio 2026</span>
 </footer>
 
 <script>

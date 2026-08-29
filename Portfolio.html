@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan Siby — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+    --accent: #c8502a;
+    --accent-light: #fde8df;
+    --ink: #1a1a18;
+    --ink-soft: #4a4a45;
+    --ink-faint: #7a7a75;
+    --rule: #e0dfd9;
+    --paper: #fff;
+    --paper-warm: #faf9f7;
+  }
+  
+  html, body { width: 100%; height: 100%; }
+  
+  body {
+    font-family: var(--sans);
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto 20px;
+    padding: 0.75in;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    page-break-after: always;
+  }
+  
+  /* COVER PAGE */
+  .page.cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #faf9f7 0%, #fff 100%);
+  }
+  
+  .cover-name {
+    font-family: var(--serif);
+    font-size: 4em;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.2em;
+    color: var(--ink);
+  }
+  
+  .cover-title {
+    font-size: 1.6em;
+    color: var(--accent);
+    margin-bottom: 0.4em;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+  
+  .cover-subtitle {
+    font-size: 1.2em;
+    color: var(--ink-soft);
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+  }
+  
+  .cover-info {
+    margin-top: 2em;
+    font-size: 1em;
+    color: var(--ink-soft);
+    line-height: 2;
+  }
+  
+  /* PROJECT PAGE */
+  .project-header {
+    margin-bottom: 0.4in;
+    border-bottom: 2pt solid var(--accent);
+    padding-bottom: 0.2in;
+  }
+  
+  .project-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.15in 0.25in;
+    border-radius: 3pt;
+    font-size: 0.75em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.15in;
+  }
+  
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.8em;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.1in;
+    line-height: 1.2;
+  }
+  
+  .project-meta {
+    font-size: 0.95em;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  
+  .project-meta span {
+    display: inline-block;
+    margin-right: 1.5em;
+  }
+  
+  .project-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25in;
+    margin: 0.3in 0 0.3in;
+  }
+  
+  .project-images.single {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-images.three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .project-images.two-tall {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  
+  .project-images.two-tall .project-image:first-child {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: auto;
+    max-height: 2.5in;
+    object-fit: contain;
+    background: var(--paper-warm);
+    border-radius: 4pt;
+    border: 1pt solid var(--rule);
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .project-images.two-tall .project-image:first-child {
+    max-height: 4.5in;
+  }
+  
+  .project-description {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 0.2in;
+    text-align: left;
+  }
+  
+  .project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2in;
+    font-size: 0.9em;
+    margin-top: 0.25in;
+  }
+  
+  .detail-row {
+    page-break-inside: avoid;
+  }
+  
+  .detail-label {
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.05in;
+  }
+  
+  .detail-value {
+    color: var(--ink-soft);
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+  
+  .page-number {
+    position: absolute;
+    bottom: 0.5in;
+    right: 0.75in;
+    font-size: 0.8em;
+    color: var(--ink-faint);
+  }
+  
+  .page {
+    position: relative;
+  }
+  
+  /* PRINT STYLES */
+  @media print {
+    body { margin: 0; padding: 0; background: white; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; }
+    a { color: var(--accent); text-decoration: none; }
+  }
+  
+  @page {
+    size: letter;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <div class="cover-name">Alan Siby</div>
+  <div class="cover-title">Portfolio</div>
+  <div class="cover-subtitle">
+    Incoming UT Austin Freshman<br>
+    Aspiring Aerospace & Mechanical Engineer
+  </div>
+  <div class="cover-info">
+    <div>Class of 2030</div>
+    <div>Austin, Texas</div>
+  </div>
+</div>
+
+<!-- PAGE 2: RESEARCH - Spacecraft Attitude Control -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Research</span>
+    <h1 class="project-title">1-Axis Spacecraft Attitude Control</h1>
+    <div class="project-meta">
+      <span>Institute for Computing in Research</span>
+      <span>Summer 2025</span>
+    </div>
+  </div>
+  
+  <div class="project-description">
+    Built a Python simulation of a single-axis spacecraft attitude control system using a PD controller and reaction wheel with saturation constraints. Optimized controller gains via grid search and verified performance using root locus analysis and time-domain simulation. This research explores critical trade-offs between steady-state error, transient response, and physical wheel saturation limits, essential for real-world spacecraft design. Co-authored and published peer-reviewed findings on <a href="https://engrxiv.org/" target="_blank" rel="noopener" style="color: var(--accent);">engrXiv</a>, demonstrating ability to communicate complex control systems concepts at an academic level.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools & Skills</span>
+      <div class="detail-value">Python, NumPy, Matplotlib, Control theory, Simulation, Optimization</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Outcome</span>
+      <div class="detail-value">Published research paper on engrXiv with technical documentation</div>
+    </div>
+  </div>
+  <div class="page-number">2</div>
+</div>
+
+<!-- PAGE 3: Magic Snap -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Product Redesign</span>
+    <h1 class="project-title">Magic Snap — Ergonomic Mouse Redesign</h1>
+    <div class="project-meta">
+      <span>Engineering Capstone</span>
+      <span>2024–2026</span>
+    </div>
+  </div>
+  
+  <div class="project-images single">
+    <img src="projects/hs/magic-snap/media/final_proto_on_stand.jpg" alt="Magic Snap final prototype" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Complete ergonomic redesign of the Apple Magic Mouse addressing three core pain points: flat design causing wrist strain, slippery surface friction, and awkward rear-end charging. Developed a modular, 3D-printable solution with integrated charging dock and textured grip. Conducted user testing with 8+ participants and iterated through two major prototype cycles. Demonstrates full human-centered design workflow from problem identification through validated prototype testing.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor, 3D Printing, User Testing</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Human factors, CAD design, Prototyping, Iteration</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Outcome</span>
+      <div class="detail-value">Functional prototype with validated ergonomic design, open-source model</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Team</span>
+      <div class="detail-value">Flow State (Ashmeet Bedi, Niketh Raghu)</div>
+    </div>
+  </div>
+  <div class="page-number">3</div>
+</div>
+
+<!-- PAGE 4: Mini Golf -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Product Design</span>
+    <h1 class="project-title">Mini Golf — Radiator Springs Hole</h1>
+    <div class="project-meta">
+      <span>Mechatronics Elective</span>
+      <span>2023</span>
+    </div>
+  </div>
+  
+  <div class="project-images three-col">
+    <img src="projects/hs/golf/media/assembled_final_top.png" alt="Mini Golf final assembly" class="project-image" onerror="this.style.display='none'">
+    <img src="projects/hs/golf/media/construction_view_1.png" alt="Cardboard course construction" class="project-image" onerror="this.style.display='none'">
+    <img src="projects/hs/golf/media/radiator_springs_drawing.png" alt="Radiator Springs hole" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Designed and built a themed mini golf hole featuring characters from Pixar's Cars, set in Radiator Springs. Incorporated strategic obstacles (ramps, barriers), engineered cup placement to control ball roll physics, and created themed aesthetic with hand-painted details. Fabricated from wood and acrylic using hand tools and power tools. Tested playability with 15+ players to validate difficulty curve, engagement, and fun factor.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor, Wood, Hand & Power Tools, Paint</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Mechanical design, Fabrication, User testing</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Dimensions</span>
+      <div class="detail-value">6 ft × 4 ft, playable 9-hole integration</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Result</span>
+      <div class="detail-value">Fully functional, polished, playable design</div>
+    </div>
+  </div>
+  <div class="page-number">4</div>
+</div>
+
+<!-- PAGE 5: Puzzle Cube -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">CAD Design</span>
+    <h1 class="project-title">Puzzle Cube</h1>
+    <div class="project-meta">
+      <span>Engineering Design & Development</span>
+      <span>2022</span>
+    </div>
+  </div>
+  
+  <div class="project-images">
+    <img src="projects/hs/puzzle-cube/media/assembled-cube-photo.jpg" alt="Puzzle Cube assembled" class="project-image" onerror="this.style.display='none'">
+    <img src="projects/hs/puzzle-cube/media/cad-full-assembly.jpg" alt="Puzzle Cube CAD" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Designed a 3D wooden puzzle system using six interlocking scrap hardwood cubes. Modeled the intricate geometry in Autodesk Inventor to ensure tight manufacturing tolerances and smooth assembly. Produced as a commercial product for a local furniture company and sold at craft markets across Texas. This project demonstrates the ability to turn waste materials into profitable, sellable products through precision design and manufacturing awareness.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor, Tolerance Design</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">3D modeling, Manufacturing awareness, Design for production</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Production</span>
+      <div class="detail-value">~25 units sold at craft markets</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Impact</span>
+      <div class="detail-value">Waste-to-product value creation, sustainable design</div>
+    </div>
+  </div>
+  <div class="page-number">5</div>
+</div>
+
+<!-- PAGE 6: Cardboard Chair -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Ergonomic Design</span>
+    <h1 class="project-title">Human-Centered Design — Cardboard Chair</h1>
+    <div class="project-meta">
+      <span>Intro to Engineering Design</span>
+      <span>2022</span>
+    </div>
+  </div>
+  
+  <div class="project-images single">
+    <img src="projects/hs/cardboard-chair/media/final-chair.jpg" alt="Cardboard Chair" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Designed and built a full-size, load-bearing chair entirely from cardboard using anthropometric data to accommodate users from 5th to 95th percentile body types. Applied human-centered design principles including optimal seat height, backrest angle, and armrest positioning. Prototyped and tested with 6 users to verify comfort and structural integrity. Awarded Best in Class at local ISED competition for innovative material use and thoughtful ergonomic analysis.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Cardstock, Cardboard, Anthropometric Data, Hand Tools</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Human factors, Structural analysis, Iteration, Testing</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Load Capacity</span>
+      <div class="detail-value">200+ lbs (tested and verified)</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Award</span>
+      <div class="detail-value">Best in Class — ISED Competition</div>
+    </div>
+  </div>
+  <div class="page-number">6</div>
+</div>
+
+<!-- PAGE 7: Castle Project -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Advanced CAD</span>
+    <h1 class="project-title">Castle Project</h1>
+    <div class="project-meta">
+      <span>Autodesk Inventor Capstone</span>
+      <span>2022</span>
+    </div>
+  </div>
+  
+  <div class="project-images">
+    <img src="projects/hs/castle-project/media/inventor-isometric-view.jpg" alt="Castle isometric view" class="project-image" onerror="this.style.display='none'">
+    <img src="projects/hs/castle-project/media/inventor-top-view.jpg" alt="Castle top view" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Modeled a highly detailed toy castle as a single parametric Autodesk Inventor part using advanced surfacing, sweep, and loft features. Features include a functioning drawbridge mechanism, moat with water detail, four turrets with crenellations, and brick texturing. This comprehensive project demonstrates mastery of complex 3D CAD modeling, design intent documentation, and parametric design principles at an advanced level.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor (Advanced Features: Sweep, Loft, Surfaces)</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Complex CAD, Surfacing, Parametric modeling, Design documentation</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Scale</span>
+      <div class="detail-value">12-inch base with functioning drawbridge mechanism</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Complexity</span>
+      <div class="detail-value">Single parametric part with animated moving components</div>
+    </div>
+  </div>
+  <div class="page-number">7</div>
+</div>
+
+<!-- PAGE 8: Trammel Toy -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Mechanism Design</span>
+    <h1 class="project-title">Trammel Toy</h1>
+    <div class="project-meta">
+      <span>Mechanism Design Elective</span>
+      <span>2023</span>
+    </div>
+  </div>
+  
+  <div class="project-images single">
+    <img src="projects/hs/trammel-toy/media/trammel-poster.jpg" alt="Trammel Toy poster" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Modeled and animated a trammel mechanism in Autodesk Inventor using motion constraints to simulate a rotating beam (crank) driving two independent linear sliders. Analyzed motion paths and extracted velocity profiles. Created assembly animation showing smooth, synchronized slider motion driven by a single rotating input shaft. Demonstrates deep understanding of kinematics, mechanical linkage design, and motion simulation.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor Motion Simulation, Constraint Design</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Kinematics, Motion simulation, Mechanism analysis, Technical reporting</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Analysis</span>
+      <div class="detail-value">Velocity and acceleration profiles extracted and documented</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Deliverable</span>
+      <div class="detail-value">Animated assembly with technical analysis report</div>
+    </div>
+  </div>
+  <div class="page-number">8</div>
+</div>
+
+<!-- PAGE 9: Cam Mechanism -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">CAD/CAM Design</span>
+    <h1 class="project-title">Cam-Driven Mechanism — Alien UFO Toy</h1>
+    <div class="project-meta">
+      <span>CAD/CAM Capstone</span>
+      <span>2023</span>
+    </div>
+  </div>
+  
+  <div class="project-images single">
+    <img src="projects/hs/cam/media/drawing-exploded-assembly.jpg" alt="Cam mechanism assembly drawing" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Designed a cam-and-follower mechanism in Autodesk Inventor with hex and eccentric cam profiles. Produced dimensioned engineering drawings for every component. Manufactured a working wooden prototype with rotating hand crank that drives a pop-up "Alien UFO" figure. This project demonstrates the complete product design-to-fabrication workflow, from initial concept through detailed CAD documentation to hands-on manufacturing and assembly.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Autodesk Inventor, Wood, Machining, Hand Tools</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Cam profile design, Technical drawings, Fabrication, Assembly</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Outcome</span>
+      <div class="detail-value">Fully functional mechanical toy with polished hand crank</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Materials</span>
+      <div class="detail-value">Wood, steel axle, hand-finished crank, pop-up mechanism</div>
+    </div>
+  </div>
+  <div class="page-number">9</div>
+</div>
+
+<!-- PAGE 10: Hair Dryer Teardown -->
+<div class="page">
+  <div class="project-header">
+    <span class="project-tag">Reverse Engineering</span>
+    <h1 class="project-title">Hair Dryer Teardown & Performance Testing</h1>
+    <div class="project-meta">
+      <span>Engineering Analysis Elective</span>
+      <span>2025</span>
+    </div>
+  </div>
+  
+  <div class="project-images single">
+    <img src="projects/hs/hair-dryer/media/disassembly.jpg" alt="Hair dryer disassembled" class="project-image" onerror="this.style.display='none'">
+  </div>
+  
+  <div class="project-description">
+    Disassembled a commercial hair dryer to map its functional model and identify internal components (heating element, motor, fan, thermostat). Documented the signal flow and control logic. Conducted systematic performance testing: measured heat output with thermometer, airspeed with anemometer, noise level with decibel meter, and dry time across both power settings. Created detailed technical report with findings and design recommendations based on experimental data.
+  </div>
+  
+  <div class="project-details">
+    <div class="detail-row">
+      <span class="detail-label">Tools</span>
+      <div class="detail-value">Thermometer, Anemometer, Decibel Meter, Hand Tools, Technical Documentation</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Skills</span>
+      <div class="detail-value">Reverse engineering, Experimental design, Data analysis, Technical reporting</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Deliverable</span>
+      <div class="detail-value">Functional diagram, comprehensive test report, design recommendations</div>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Data Points</span>
+      <div class="detail-value">8+ performance metrics across 2 operating modes</div>
+    </div>
+  </div>
+  <div class="page-number">10</div>
+</div>
+
+</body>
+</html>
